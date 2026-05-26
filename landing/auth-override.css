@@ -81,6 +81,11 @@ body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-h
   background: transparent !important;
 }
 
+body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 > .absolute.inset-0.bg-gradient-to-br.from-gray-50.via-primary-50\/30.to-gray-100.dark\:from-dark-950.dark\:via-dark-900.dark\:to-dark-950,
+body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 > .pointer-events-none.absolute.inset-0.overflow-hidden {
+  display: none !important;
+}
+
 body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4::before {
   content: "";
   position: absolute;
@@ -108,7 +113,7 @@ body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-h
   display: flex;
   justify-content: center;
   margin-top: 58px !important;
-  margin-bottom: 36px !important;
+  margin-bottom: 20px !important;
 }
 
 body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 > .relative.z-10.w-full.max-w-md > .mb-8.text-center .inline-flex {
@@ -369,7 +374,7 @@ html.auth-light .auth-theme-toggle .icon-moon {
 
   body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 > .relative.z-10.w-full.max-w-md > .mb-8.text-center {
     margin-top: 46px !important;
-    margin-bottom: 28px !important;
+    margin-bottom: 20px !important;
   }
 
   body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 > .relative.z-10.w-full.max-w-md > .card-glass.rounded-2xl.p-8.shadow-glass {
