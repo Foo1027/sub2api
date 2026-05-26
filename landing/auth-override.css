@@ -51,6 +51,7 @@ body {
     radial-gradient(circle at 18% 0%, rgba(var(--auth-sunset-rgb), 0.08), transparent 24%),
     radial-gradient(circle at 82% 10%, rgba(124, 58, 237, 0.08), transparent 26%),
     linear-gradient(180deg, #080808 0%, #0a0a0a 28%, #0d1116 100%) !important;
+  background-color: #0a0a0a !important;
 }
 
 html.auth-light body {
@@ -58,10 +59,12 @@ html.auth-light body {
     radial-gradient(circle at 18% 0%, rgba(var(--auth-sunset-rgb), 0.12), transparent 26%),
     radial-gradient(circle at 82% 12%, rgba(124, 58, 237, 0.09), transparent 28%),
     linear-gradient(180deg, #faf6ef 0%, #f4efe8 30%, #eee9e1 100%) !important;
+  background-color: #f3f0ea !important;
 }
 
 body #app {
   min-height: 100vh;
+  background: transparent !important;
 }
 
 body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 {
@@ -72,6 +75,7 @@ body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-h
   min-height: 100vh;
   padding: 32px 18px;
   overflow: hidden !important;
+  background: transparent !important;
 }
 
 body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4::before {
@@ -94,7 +98,8 @@ body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-h
 body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 > .relative.z-10.w-full.max-w-md > .mb-8.text-center {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px !important;
+  margin-top: 24px !important;
+  margin-bottom: 28px !important;
 }
 
 body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 > .relative.z-10.w-full.max-w-md > .mb-8.text-center .inline-flex {
@@ -148,6 +153,11 @@ body .text-2xl,
 body .text-lg,
 body .input-label {
   color: var(--auth-ink) !important;
+}
+
+body h2,
+body .text-2xl {
+  display: none !important;
 }
 
 body .text-sm,
