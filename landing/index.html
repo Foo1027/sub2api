@@ -316,6 +316,23 @@
         border: 1px solid var(--hairline-strong);
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.06);
+        cursor: pointer;
+      }
+
+      .side-index a.is-active {
+        background: var(--ink);
+        border-color: var(--ink);
+        box-shadow: 0 0 0 6px rgba(var(--accent-sunset-rgb), 0.1);
+      }
+
+      body[data-theme="light"] .side-index a {
+        background: rgba(23, 21, 26, 0.08);
+      }
+
+      body[data-theme="light"] .side-index a.is-active {
+        background: #15191a;
+        border-color: #15191a;
+        box-shadow: 0 0 0 6px rgba(var(--accent-sunset-rgb), 0.14);
       }
 
       body[data-view="docs"] .side-index,
@@ -1327,12 +1344,12 @@
     </header>
 
     <div class="side-index">
-      <a href="#home"></a>
-      <a href="#tools"></a>
-      <a href="#pricing"></a>
-      <a href="#value"></a>
-      <a href="#faq"></a>
-      <a href="#cta"></a>
+      <a href="#home" data-section-link="home" aria-label="跳转到首页"></a>
+      <a href="#tools" data-section-link="tools" aria-label="跳转到支持工具"></a>
+      <a href="#pricing" data-section-link="pricing" aria-label="跳转到价格方案"></a>
+      <a href="#value" data-section-link="value" aria-label="跳转到产品价值"></a>
+      <a href="#faq" data-section-link="faq" aria-label="跳转到常见问题"></a>
+      <a href="#cta" data-section-link="cta" aria-label="跳转到立即开始"></a>
     </div>
 
     <main class="view-panel is-active" id="view-home">
@@ -1623,10 +1640,14 @@
       const themeToggle = document.querySelector(".theme-toggle");
       const internalPageLinks = Array.from(document.querySelectorAll('a[href]'));
       const navStateLinks = Array.from(document.querySelectorAll(".topbar [data-view-link]"));
+      const sideIndexLinks = Array.from(document.querySelectorAll(".side-index [data-section-link]"));
       const homeSection = document.getElementById("home");
       const faqSection = document.getElementById("faq");
       const orbitRoot = document.getElementById("hero-orbit");
       const orbitLabels = orbitRoot ? Array.from(orbitRoot.querySelectorAll(".orbit-track")) : [];
+      const scrollSections = ["home", "tools", "pricing", "value", "faq", "cta"]
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
       const getStoredTheme = () => {
         try {
           return window.localStorage.getItem("aifoo-theme");
@@ -1679,6 +1700,23 @@
       const syncHomeNavStateFromHash = () => {
         const activeView = window.location.hash === "#faq" ? "faq" : "home";
         syncHomeNavState(activeView);
+      };
+
+      const syncSideIndexState = (activeSectionId) => {
+        sideIndexLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.dataset.sectionLink === activeSectionId);
+        });
+      };
+
+      const scrollToSection = (sectionId) => {
+        const target = document.getElementById(sectionId);
+        if (!target) return;
+        window.history.replaceState(null, "", `./index.html#${sectionId}`);
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        syncSideIndexState(sectionId);
+        if (sectionId === "faq" || sectionId === "home") {
+          syncHomeNavState(sectionId === "faq" ? "faq" : "home");
+        }
       };
 
       const setupPageTransitions = () => {
@@ -1760,23 +1798,50 @@
           const target = link.dataset.viewLink;
           if (target === "home") {
             event.preventDefault();
-            window.history.replaceState(null, "", "./index.html#home");
-            homeSection?.scrollIntoView({ behavior: "smooth", block: "start" });
-            syncHomeNavState("home");
+            scrollToSection("home");
             return;
           }
 
           if (target === "faq") {
             event.preventDefault();
-            window.history.replaceState(null, "", "./index.html#faq");
-            faqSection?.scrollIntoView({ behavior: "smooth", block: "start" });
-            syncHomeNavState("faq");
+            scrollToSection("faq");
           }
         });
       });
 
+      sideIndexLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          scrollToSection(link.dataset.sectionLink);
+        });
+      });
+
+      if (scrollSections.length) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visibleEntries = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+            const activeSection = visibleEntries[0]?.target?.id;
+            if (!activeSection) return;
+            syncSideIndexState(activeSection);
+            if (activeSection === "faq" || activeSection === "home") {
+              syncHomeNavState(activeSection === "faq" ? "faq" : "home");
+            }
+          },
+          {
+            root: null,
+            rootMargin: "-20% 0px -35% 0px",
+            threshold: [0.2, 0.4, 0.6]
+          }
+        );
+
+        scrollSections.forEach((section) => observer.observe(section));
+      }
+
       window.addEventListener("hashchange", syncHomeNavStateFromHash);
       syncHomeNavStateFromHash();
+      syncSideIndexState(window.location.hash ? window.location.hash.slice(1) : "home");
       setupPageTransitions();
 
       window.requestAnimationFrame(animateHeroOrbit);
