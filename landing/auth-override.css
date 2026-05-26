@@ -1,520 +1,356 @@
 :root {
-  --aifoo-auth-ink: #f6f1e8;
-  --aifoo-auth-body: rgba(246, 241, 232, 0.78);
-  --aifoo-auth-hairline: rgba(255, 255, 255, 0.14);
-  --aifoo-auth-card: rgba(255, 255, 255, 0.06);
-  --aifoo-auth-card-strong: rgba(255, 255, 255, 0.12);
-  --aifoo-auth-orange: #ff7a17;
-  --aifoo-auth-orange-deep: #ef5e0b;
-  --aifoo-auth-orange-soft: rgba(255, 122, 23, 0.18);
-  --aifoo-auth-shadow: 0 28px 90px rgba(5, 8, 16, 0.42);
+  --auth-bg: #f7f7f5;
+  --auth-surface: rgba(255, 255, 255, 0.72);
+  --auth-surface-strong: rgba(255, 255, 255, 0.9);
+  --auth-border: rgba(15, 23, 42, 0.08);
+  --auth-border-strong: rgba(15, 23, 42, 0.14);
+  --auth-ink: #111827;
+  --auth-body: rgba(17, 24, 39, 0.68);
+  --auth-soft: rgba(17, 24, 39, 0.46);
+  --auth-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+  --auth-primary: #111111;
+  --auth-primary-hover: #262626;
 }
 
-body.auth-landing-page {
+html.dark {
+  --auth-bg: #09090b;
+  --auth-surface: rgba(255, 255, 255, 0.08);
+  --auth-surface-strong: rgba(255, 255, 255, 0.12);
+  --auth-border: rgba(255, 255, 255, 0.1);
+  --auth-border-strong: rgba(255, 255, 255, 0.16);
+  --auth-ink: #f8fafc;
+  --auth-body: rgba(248, 250, 252, 0.7);
+  --auth-soft: rgba(248, 250, 252, 0.46);
+  --auth-shadow: 0 28px 80px rgba(0, 0, 0, 0.4);
+  --auth-primary: #ffffff;
+  --auth-primary-hover: #f3f4f6;
+}
+
+body.auth-landing-page.auth-packy-page {
   background:
-    radial-gradient(circle at 18% 18%, rgba(255, 122, 23, 0.18), transparent 34%),
-    radial-gradient(circle at 82% 12%, rgba(255, 178, 119, 0.12), transparent 26%),
-    linear-gradient(180deg, #090909 0%, #101318 48%, #0c1016 100%);
-  color: var(--aifoo-auth-ink);
+    radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.14), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(236, 72, 153, 0.12), transparent 22%),
+    radial-gradient(circle at 54% 78%, rgba(6, 182, 212, 0.12), transparent 24%),
+    var(--auth-bg);
+  color: var(--auth-ink);
 }
 
-body.auth-landing-page #app {
+body.auth-landing-page.auth-packy-page #app {
   min-height: 100vh;
 }
 
-body.auth-landing-page .aifoo-auth-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(340px, 420px);
-  align-items: center;
-  gap: clamp(24px, 3.5vw, 56px);
-  width: min(100%, 1180px);
-  margin: 0 auto;
-  padding: clamp(20px, 3vw, 32px);
-  overflow: visible !important;
-}
-
-body.auth-landing-page .aifoo-auth-layout::after {
-  content: "";
-  position: absolute;
-  inset: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 32px;
-  pointer-events: none;
-}
-
-body.auth-landing-page .aifoo-auth-hero {
+body.auth-landing-page.auth-packy-page .aifoo-auth-layout {
   position: relative;
-  min-height: min(76vh, 760px);
-  border: 1px solid var(--aifoo-auth-hairline);
-  border-radius: 32px;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
-    radial-gradient(circle at 82% 18%, rgba(255, 122, 23, 0.22), transparent 24%),
-    radial-gradient(circle at 30% 85%, rgba(255, 178, 119, 0.12), transparent 22%),
-    rgba(12, 16, 22, 0.84);
-  box-shadow: var(--aifoo-auth-shadow);
-  overflow: hidden;
-}
-
-body.auth-landing-page .aifoo-auth-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 52px 52px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 88%);
-  pointer-events: none;
-}
-
-body.auth-landing-page .aifoo-auth-hero::after {
-  content: "";
-  position: absolute;
-  right: 28px;
-  bottom: 28px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(255, 122, 23, 0.24), rgba(255, 122, 23, 0.02) 55%, transparent 70%);
-  filter: blur(4px);
-  pointer-events: none;
-}
-
-body.auth-landing-page .aifoo-auth-hero-inner {
-  position: relative;
-  z-index: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  padding: clamp(36px, 5vw, 56px);
-}
-
-body.auth-landing-page .aifoo-auth-kicker {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(246, 241, 232, 0.82);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-}
-
-body.auth-landing-page .aifoo-auth-hero h1 {
-  margin: 26px 0 14px;
-  color: #fff;
-  font-size: clamp(48px, 8vw, 88px);
-  line-height: 0.94;
-  letter-spacing: -0.05em;
-}
-
-body.auth-landing-page .aifoo-auth-tagline {
-  max-width: 680px;
-  margin: 0;
-  color: var(--aifoo-auth-body);
-  font-size: clamp(18px, 2vw, 22px);
-  line-height: 1.7;
-}
-
-body.auth-landing-page .aifoo-auth-points {
-  display: grid;
-  gap: 16px;
-  margin-top: 34px;
-}
-
-body.auth-landing-page .aifoo-auth-point {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-  align-items: start;
-  padding: 18px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-}
-
-body.auth-landing-page .aifoo-auth-point-icon {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #ff8f3d, #ff6a13);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  min-height: 100vh;
+  padding: 32px 18px;
+  overflow: hidden !important;
 }
 
-body.auth-landing-page .aifoo-auth-point strong {
-  display: block;
-  margin-bottom: 6px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-body.auth-landing-page .aifoo-auth-point p {
-  margin: 0;
-  color: rgba(246, 241, 232, 0.72);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-body.auth-landing-page .aifoo-auth-hero-models {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
-}
-
-body.auth-landing-page .aifoo-auth-hero-models span {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 13px;
-}
-
-body.auth-landing-page .aifoo-auth-panel {
+body.auth-landing-page.auth-packy-page .aifoo-auth-panel {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 430px !important;
+  max-width: 460px !important;
 }
 
-body.auth-landing-page .aifoo-auth-brand {
-  text-align: left !important;
-  margin-bottom: 22px !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-body.auth-landing-page .aifoo-auth-brand .inline-flex {
-  width: 72px !important;
-  height: 72px !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-blur {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(24px);
+  opacity: 0.75;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-blur-1 {
+  top: 10%;
+  left: 12%;
+  width: 260px;
+  height: 260px;
+  background: rgba(59, 130, 246, 0.14);
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-blur-2 {
+  right: 12%;
+  top: 16%;
+  width: 220px;
+  height: 220px;
+  background: rgba(236, 72, 153, 0.12);
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-blur-3 {
+  bottom: 10%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  transform: translateX(-50%);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(17, 24, 39, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.03) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.72), transparent 82%);
+}
+
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-grid {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-brand {
+  margin-bottom: 20px !important;
+  text-align: center !important;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-brand .inline-flex {
+  width: 70px !important;
+  height: 70px !important;
   margin-bottom: 16px;
   border-radius: 22px !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-    rgba(255, 255, 255, 0.03);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+  background: var(--auth-surface);
+  border: 1px solid var(--auth-border);
+  box-shadow: var(--auth-shadow);
+  backdrop-filter: blur(20px) saturate(180%);
 }
 
-body.auth-landing-page .aifoo-auth-brand .text-gradient {
-  background: linear-gradient(180deg, #fff 0%, #f5d8c0 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-size: 40px !important;
-  line-height: 1;
+body.auth-landing-page.auth-packy-page .aifoo-auth-brand .text-gradient {
+  color: var(--auth-ink);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  font-size: 34px !important;
+  line-height: 1.02;
   letter-spacing: -0.04em;
 }
 
-body.auth-landing-page .aifoo-auth-brand p {
-  color: rgba(246, 241, 232, 0.58) !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-brand p {
+  color: var(--auth-soft) !important;
 }
 
-body.auth-landing-page .aifoo-auth-card {
-  border: 1px solid var(--aifoo-auth-hairline);
-  border-radius: 30px !important;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
-    rgba(14, 18, 24, 0.82) !important;
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35) !important;
-  backdrop-filter: blur(26px);
-}
-
-body.auth-landing-page .aifoo-auth-card,
-body.auth-landing-page .aifoo-auth-brand,
-body.auth-landing-page .aifoo-auth-footer,
-body.auth-landing-page .aifoo-auth-copyright {
+body.auth-landing-page.auth-packy-page .aifoo-auth-card {
   position: relative;
-  z-index: 2;
+  overflow: visible;
+  padding-top: 82px !important;
+  border-radius: 28px !important;
+  border: 1px solid var(--auth-border) !important;
+  background: var(--auth-surface) !important;
+  box-shadow: var(--auth-shadow) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
-body.auth-landing-page .aifoo-auth-card h2,
-body.auth-landing-page .aifoo-auth-card h3,
-body.auth-landing-page .aifoo-auth-card .text-2xl,
-body.auth-landing-page .aifoo-auth-card .text-lg {
-  color: #fff !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
 }
 
-body.auth-landing-page .aifoo-auth-card .text-sm,
-body.auth-landing-page .aifoo-auth-card .text-xs,
-body.auth-landing-page .aifoo-auth-footer,
-body.auth-landing-page .aifoo-auth-copyright {
-  color: rgba(246, 241, 232, 0.62) !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-floating-badge {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: calc(100% - 34px);
+  transform: translateX(-50%);
+  padding: 14px 16px;
+  border: 1px solid var(--auth-border);
+  border-radius: 20px;
+  background: var(--auth-surface-strong);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  text-align: center;
 }
 
-body.auth-landing-page .aifoo-auth-card .input-label {
-  color: rgba(255, 255, 255, 0.88);
+body.auth-landing-page.auth-packy-page .aifoo-auth-floating-kicker {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--auth-soft);
+  font-size: 11px;
+  letter-spacing: 0.14em;
 }
 
-body.auth-landing-page .aifoo-auth-card .input,
-body.auth-landing-page .aifoo-auth-card input[type="email"],
-body.auth-landing-page .aifoo-auth-card input[type="password"],
-body.auth-landing-page .aifoo-auth-card input[type="text"] {
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  background: rgba(255, 255, 255, 0.055) !important;
-  color: #fff !important;
-  border-radius: 16px !important;
-  min-height: 52px;
-  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-}
-
-body.auth-landing-page .aifoo-auth-card .input::placeholder,
-body.auth-landing-page .aifoo-auth-card input::placeholder {
-  color: rgba(246, 241, 232, 0.34) !important;
-}
-
-body.auth-landing-page .aifoo-auth-card .input:focus,
-body.auth-landing-page .aifoo-auth-card input:focus {
-  border-color: rgba(255, 122, 23, 0.84) !important;
-  box-shadow: 0 0 0 4px rgba(255, 122, 23, 0.16) !important;
-  background: rgba(255, 255, 255, 0.07) !important;
-}
-
-body.auth-landing-page .aifoo-auth-card .btn {
-  border-radius: 16px !important;
-  min-height: 52px;
+body.auth-landing-page.auth-packy-page .aifoo-auth-floating-badge strong {
+  display: block;
+  color: var(--auth-ink);
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.01em;
 }
 
-body.auth-landing-page .aifoo-auth-card .btn-primary {
-  border: 1px solid rgba(255, 154, 82, 0.38);
-  background: linear-gradient(180deg, #ff8f3d 0%, #ff6a13 100%) !important;
-  color: #fff !important;
-  box-shadow: 0 16px 34px rgba(255, 106, 19, 0.34) !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-floating-badge p {
+  margin: 6px 0 0;
+  color: var(--auth-body);
+  font-size: 12px;
+  line-height: 1.55;
 }
 
-body.auth-landing-page .aifoo-auth-card .btn-primary:hover {
-  background: linear-gradient(180deg, #ff9b52 0%, #ff7420 100%) !important;
-  box-shadow: 0 18px 36px rgba(255, 106, 19, 0.4) !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card h2,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card h3,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-2xl,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-lg,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .input-label {
+  color: var(--auth-ink) !important;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-sm,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-xs,
+body.auth-landing-page.auth-packy-page .aifoo-auth-footer,
+body.auth-landing-page.auth-packy-page .aifoo-auth-copyright,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .input-hint {
+  color: var(--auth-body) !important;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .input,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card input[type="email"],
+body.auth-landing-page.auth-packy-page .aifoo-auth-card input[type="password"],
+body.auth-landing-page.auth-packy-page .aifoo-auth-card input[type="text"] {
+  min-height: 50px;
+  border-radius: 16px !important;
+  border: 1px solid var(--auth-border) !important;
+  background: rgba(255, 255, 255, 0.58) !important;
+  color: var(--auth-ink) !important;
+  transition: all 0.25s ease;
+}
+
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card .input,
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card input[type="email"],
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card input[type="password"],
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card input[type="text"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .input::placeholder,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card input::placeholder {
+  color: var(--auth-soft) !important;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .input:hover,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card input:hover,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .input:focus,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card input:focus {
+  border-color: var(--auth-border-strong) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.05) !important;
+}
+
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card .input:hover,
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card input:hover,
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card .input:focus,
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card input:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06) !important;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .btn {
+  min-height: 50px;
+  border-radius: 16px !important;
+  font-weight: 600;
+  transition: all 0.22s ease;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .btn-primary {
+  background: var(--auth-primary) !important;
+  border: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(17, 17, 17, 0.16) !important;
+}
+
+html.dark body.auth-landing-page.auth-packy-page .aifoo-auth-card .btn-primary {
+  color: #111111 !important;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08) !important;
+}
+
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .btn-primary:hover {
+  background: var(--auth-primary-hover) !important;
   transform: translateY(-1px);
 }
 
-body.auth-landing-page .aifoo-auth-card .btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  color: rgba(255, 255, 255, 0.92) !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .btn-secondary {
+  background: transparent !important;
+  border: 1px solid var(--auth-border-strong) !important;
+  color: var(--auth-ink) !important;
 }
 
-body.auth-landing-page .aifoo-auth-card a,
-body.auth-landing-page .aifoo-auth-footer a,
-body.auth-landing-page .aifoo-auth-card .text-primary-600,
-body.auth-landing-page .aifoo-auth-card .dark\:text-primary-400 {
-  color: #ff9b52 !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card a,
+body.auth-landing-page.auth-packy-page .aifoo-auth-footer a,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-primary-600,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .dark\:text-primary-400 {
+  color: var(--auth-ink) !important;
 }
 
-body.auth-landing-page .aifoo-auth-card a:hover,
-body.auth-landing-page .aifoo-auth-footer a:hover {
-  color: #ffb277 !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card a:hover,
+body.auth-landing-page.auth-packy-page .aifoo-auth-footer a:hover {
+  opacity: 0.72;
 }
 
-body.auth-landing-page .aifoo-auth-card .bg-green-50,
-body.auth-landing-page .aifoo-auth-card .bg-amber-50 {
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  background: rgba(255, 255, 255, 0.055) !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .bg-green-50,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .bg-amber-50,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .dark\:bg-green-900\/20,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .dark\:bg-amber-900\/20 {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: var(--auth-border) !important;
 }
 
-body.auth-landing-page .aifoo-auth-card .text-green-700,
-body.auth-landing-page .aifoo-auth-card .text-green-800,
-body.auth-landing-page .aifoo-auth-card .text-amber-700 {
-  color: rgba(255, 255, 255, 0.88) !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-green-700,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-green-800,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-amber-700 {
+  color: var(--auth-ink) !important;
 }
 
-body.auth-landing-page .aifoo-auth-card .text-green-400,
-body.auth-landing-page .aifoo-auth-card .text-green-600 {
-  color: #ffb277 !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-green-400,
+body.auth-landing-page.auth-packy-page .aifoo-auth-card .text-green-600 {
+  color: var(--auth-body) !important;
 }
 
-body.auth-landing-page .aifoo-auth-footer {
-  margin-top: 18px !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-footer,
+body.auth-landing-page.auth-packy-page .aifoo-auth-copyright {
+  text-align: center !important;
 }
 
-body.auth-landing-page .aifoo-auth-copyright {
-  margin-top: 18px !important;
-  text-align: left !important;
+body.auth-landing-page.auth-packy-page .aifoo-auth-copyright {
+  margin-top: 16px !important;
 }
 
-html:not(.dark) body.auth-landing-page {
-  --aifoo-auth-ink: #1e1d1a;
-  --aifoo-auth-body: rgba(48, 38, 24, 0.78);
-  --aifoo-auth-hairline: rgba(58, 35, 12, 0.1);
-  background:
-    radial-gradient(circle at 14% 18%, rgba(255, 122, 23, 0.18), transparent 32%),
-    radial-gradient(circle at 82% 8%, rgba(255, 178, 119, 0.14), transparent 24%),
-    linear-gradient(180deg, #fff6ee 0%, #fbf5ef 50%, #f6efe7 100%);
-  color: #211d17;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-layout::after {
-  border-color: rgba(58, 35, 12, 0.06);
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-hero {
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(255, 245, 236, 0.72)),
-    radial-gradient(circle at 84% 18%, rgba(255, 122, 23, 0.12), transparent 24%),
-    radial-gradient(circle at 20% 80%, rgba(255, 178, 119, 0.12), transparent 22%);
-  border-color: rgba(255, 145, 74, 0.18);
-  box-shadow: 0 28px 70px rgba(163, 86, 21, 0.12);
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-hero::before {
-  background:
-    linear-gradient(rgba(78, 53, 22, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(78, 53, 22, 0.05) 1px, transparent 1px);
-  background-size: 52px 52px;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-kicker {
-  border-color: rgba(255, 145, 74, 0.18);
-  background: rgba(255, 255, 255, 0.62);
-  color: rgba(89, 52, 14, 0.78);
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-hero h1 {
-  color: #1d160f;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-tagline,
-html:not(.dark) body.auth-landing-page .aifoo-auth-point p {
-  color: rgba(62, 41, 17, 0.72);
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-point {
-  border-color: rgba(255, 145, 74, 0.14);
-  background: rgba(255, 255, 255, 0.66);
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-point strong {
-  color: #201710;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-hero-models span {
-  border-color: rgba(255, 145, 74, 0.14);
-  background: rgba(255, 255, 255, 0.72);
-  color: rgba(55, 33, 10, 0.8);
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-brand .inline-flex {
-  border-color: rgba(255, 145, 74, 0.14);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 244, 235, 0.92));
-  box-shadow: 0 18px 34px rgba(177, 99, 34, 0.1);
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-brand .text-gradient {
-  background: linear-gradient(180deg, #23170e 0%, #9a4c13 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-brand p,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .text-sm,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .text-xs,
-html:not(.dark) body.auth-landing-page .aifoo-auth-footer,
-html:not(.dark) body.auth-landing-page .aifoo-auth-copyright {
-  color: rgba(76, 54, 31, 0.68) !important;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-card {
-  border-color: rgba(255, 145, 74, 0.16);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 242, 0.9)),
-    rgba(255, 255, 255, 0.82) !important;
-  box-shadow: 0 30px 60px rgba(160, 92, 29, 0.12) !important;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-card h2,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card h3,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .text-2xl,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .text-lg,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .input-label,
-html:not(.dark) body.auth-landing-page .aifoo-auth-copyright {
-  color: #241a12 !important;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .input,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card input[type="email"],
-html:not(.dark) body.auth-landing-page .aifoo-auth-card input[type="password"],
-html:not(.dark) body.auth-landing-page .aifoo-auth-card input[type="text"] {
-  border-color: rgba(173, 112, 52, 0.18) !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  color: #241a12 !important;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .input::placeholder,
-html:not(.dark) body.auth-landing-page .aifoo-auth-card input::placeholder {
-  color: rgba(109, 74, 39, 0.42) !important;
-}
-
-html:not(.dark) body.auth-landing-page .aifoo-auth-card .btn-secondary {
-  border-color: rgba(173, 112, 52, 0.16) !important;
-  background: rgba(255, 255, 255, 0.88) !important;
-  color: #241a12 !important;
-}
-
-@media (max-width: 1240px) {
-  body.auth-landing-page .aifoo-auth-layout {
-    display: block;
-    width: min(100%, 480px);
-    padding: 20px 0;
+@media (max-width: 640px) {
+  body.auth-landing-page.auth-packy-page .aifoo-auth-layout {
+    padding: 20px 12px;
   }
 
-  body.auth-landing-page .aifoo-auth-layout::after {
-    display: none;
+  body.auth-landing-page.auth-packy-page .aifoo-auth-panel {
+    max-width: 100% !important;
   }
 
-  body.auth-landing-page .aifoo-auth-hero {
-    display: none;
+  body.auth-landing-page.auth-packy-page .aifoo-auth-card {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border-radius: 22px !important;
   }
 
-  body.auth-landing-page .aifoo-auth-panel,
-  body.auth-landing-page .aifoo-auth-panel .aifoo-auth-copyright {
-    max-width: none !important;
-    text-align: center !important;
+  body.auth-landing-page.auth-packy-page .aifoo-auth-floating-badge {
+    width: calc(100% - 24px);
+    padding: 12px 14px;
   }
 
-  body.auth-landing-page .aifoo-auth-brand {
-    text-align: center !important;
-  }
-}
-
-@media (max-width: 1023px) {
-  body.auth-landing-page .aifoo-auth-layout {
-    display: block;
-    width: min(100%, 480px);
-    padding: 20px 0;
-  }
-
-  body.auth-landing-page .aifoo-auth-layout::after {
-    display: none;
-  }
-
-  body.auth-landing-page .aifoo-auth-hero {
-    display: none;
-  }
-
-  body.auth-landing-page .aifoo-auth-panel,
-  body.auth-landing-page .aifoo-auth-panel .aifoo-auth-copyright {
-    max-width: none !important;
-    text-align: center !important;
-  }
-
-  body.auth-landing-page .aifoo-auth-brand {
-    text-align: center !important;
+  body.auth-landing-page.auth-packy-page .aifoo-auth-blur-1,
+  body.auth-landing-page.auth-packy-page .aifoo-auth-blur-2,
+  body.auth-landing-page.auth-packy-page .aifoo-auth-blur-3 {
+    opacity: 0.42;
   }
 }

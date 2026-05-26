@@ -1,74 +1,71 @@
 (() => {
-  const AUTH_ROUTES = new Set([
-    "/login",
-    "/register",
-    "/forgot-password",
-    "/reset-password",
-    "/email-verify",
+  const AUTH_ROUTES = new Map([
+    ["/login", { kicker: "PACKY STYLE / LOGIN", title: "欢迎回来", note: "登录后继续进入你的 API 工作台。" }],
+    ["/register", { kicker: "PACKY STYLE / REGISTER", title: "创建账户", note: "保留原本注册逻辑，只替换成更轻盈的玻璃卡片视觉。" }],
+    ["/forgot-password", { kicker: "PACKY STYLE / RECOVERY", title: "找回密码", note: "通过邮箱重置密码，界面和登录页保持同一风格。" }],
+    ["/reset-password", { kicker: "PACKY STYLE / RESET", title: "重设密码", note: "继续完成密码重置流程。" }],
+    ["/email-verify", { kicker: "PACKY STYLE / VERIFY", title: "验证邮箱", note: "验证完成后继续注册流程。" }],
   ]);
 
-  function isAuthRoute() {
-    return AUTH_ROUTES.has(window.location.pathname);
+  function getRouteMeta() {
+    return AUTH_ROUTES.get(window.location.pathname);
   }
 
-  function createHero() {
-    const hero = document.createElement("section");
-    hero.className = "aifoo-auth-hero";
-    hero.innerHTML = `
-      <div class="aifoo-auth-hero-inner">
-        <div class="aifoo-auth-kicker">SUB2API / FOO+</div>
-        <h1>AIFoo</h1>
-        <p class="aifoo-auth-tagline">把订阅入口转换成稳定、顺滑、可运营的 API 工作台。</p>
-        <div class="aifoo-auth-points">
-          <div class="aifoo-auth-point">
-            <span class="aifoo-auth-point-icon">01</span>
-            <div>
-              <strong>统一登录入口</strong>
-              <p>保留原有认证逻辑，未登录页面整体切换成你的首页视觉语言。</p>
-            </div>
-          </div>
-          <div class="aifoo-auth-point">
-            <span class="aifoo-auth-point-icon">02</span>
-            <div>
-              <strong>按量计费体验</strong>
-              <p>从登录、注册到找回密码，都沿用 AIFoo 的橙色卡片和玻璃质感。</p>
-            </div>
-          </div>
-          <div class="aifoo-auth-point">
-            <span class="aifoo-auth-point-icon">03</span>
-            <div>
-              <strong>系统主题跟随</strong>
-              <p>深浅色跟随系统切换，同时保留登录页自身的交互与表单校验。</p>
-            </div>
-          </div>
-        </div>
-        <div class="aifoo-auth-hero-models" aria-hidden="true">
-          <span>Claude</span>
-          <span>GPT</span>
-          <span>Gemini</span>
-          <span>Hermes</span>
-        </div>
-      </div>
+  function ensureDecoration(outer) {
+    let decoration = outer.querySelector(".aifoo-auth-decoration");
+    if (decoration) {
+      return decoration;
+    }
+
+    decoration = document.createElement("div");
+    decoration.className = "aifoo-auth-decoration";
+    decoration.innerHTML = `
+      <div class="aifoo-auth-blur aifoo-auth-blur-1"></div>
+      <div class="aifoo-auth-blur aifoo-auth-blur-2"></div>
+      <div class="aifoo-auth-blur aifoo-auth-blur-3"></div>
+      <div class="aifoo-auth-grid"></div>
     `;
-    return hero;
+    outer.prepend(decoration);
+    return decoration;
   }
 
-  function applyAuthSkin() {
-    if (!isAuthRoute()) {
+  function ensureBadge(card, meta) {
+    if (!meta) {
       return;
     }
 
-    document.body.classList.add("auth-landing-page");
+    let badge = card.querySelector(".aifoo-auth-floating-badge");
+    if (!badge) {
+      badge = document.createElement("div");
+      badge.className = "aifoo-auth-floating-badge";
+      card.prepend(badge);
+    }
+
+    badge.innerHTML = `
+      <span class="aifoo-auth-floating-kicker">${meta.kicker}</span>
+      <strong>${meta.title}</strong>
+      <p>${meta.note}</p>
+    `;
+  }
+
+  function applyAuthSkin() {
+    const meta = getRouteMeta();
+    if (!meta) {
+      return;
+    }
+
+    document.body.classList.add("auth-landing-page", "auth-packy-page");
 
     const outer = document.querySelector(".relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4");
     const wrapper = document.querySelector(".relative.z-10.w-full.max-w-md");
-
     if (!outer || !wrapper) {
       return;
     }
 
     outer.classList.add("aifoo-auth-layout");
     wrapper.classList.add("aifoo-auth-panel");
+
+    ensureDecoration(outer);
 
     const brand = wrapper.querySelector(":scope > .mb-8.text-center");
     const card = wrapper.querySelector(":scope > .card-glass.rounded-2xl.p-8.shadow-glass");
@@ -80,18 +77,13 @@
     }
     if (card) {
       card.classList.add("aifoo-auth-card");
+      ensureBadge(card, meta);
     }
     if (footer) {
       footer.classList.add("aifoo-auth-footer");
     }
     if (copyright) {
       copyright.classList.add("aifoo-auth-copyright");
-    }
-
-    let hero = outer.querySelector(".aifoo-auth-hero");
-    if (!hero) {
-      hero = createHero();
-      outer.insertBefore(hero, wrapper);
     }
   }
 
