@@ -919,26 +919,19 @@
       .icon-badge.is-hermes-art {
         position: relative;
         color: var(--body);
+        background:
+          center / 20px 20px no-repeat url("./landing-assets/head_white_transparent.svg"),
+          rgba(255, 255, 255, 0.02);
       }
 
       .icon-badge.is-hermes-art::before {
-        content: "";
-        width: 20px;
-        height: 20px;
-        display: block;
-        background: #ffffff;
-        -webkit-mask: url("./landing-assets/head_white_transparent.svg") center / contain no-repeat;
-        mask: url("./landing-assets/head_white_transparent.svg") center / contain no-repeat;
-        transform: translateY(1px);
+        content: none;
       }
 
-      body[data-theme="light"] .icon-badge.is-hermes-art::before {
-        width: 24px;
-        height: 24px;
-        background: center / contain no-repeat url("./landing-assets/hermes_agent_avatar.svg");
-        -webkit-mask: none;
-        mask: none;
-        transform: none;
+      body[data-theme="light"] .icon-badge.is-hermes-art {
+        background:
+          center / 24px 24px no-repeat url("./landing-assets/hermes_agent_avatar.svg"),
+          transparent;
       }
 
       .icon-badge.is-openclaw {
