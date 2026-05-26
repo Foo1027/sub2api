@@ -923,14 +923,18 @@
 
       .icon-badge.is-hermes-art::before {
         content: "";
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         display: block;
         background: center / contain no-repeat url("./landing-assets/head_white_transparent.svg");
+        transform: translateY(1px);
       }
 
       body[data-theme="light"] .icon-badge.is-hermes-art::before {
+        width: 24px;
+        height: 24px;
         background: center / contain no-repeat url("./landing-assets/hermes_agent_avatar.svg");
+        transform: none;
       }
 
       .icon-badge.is-openclaw {
