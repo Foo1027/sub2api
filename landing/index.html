@@ -1284,18 +1284,22 @@
   <body>
     <script>
       (() => {
-        let theme = "dark";
+        const systemTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        let themePreference = "system";
         try {
           const storedTheme = window.localStorage.getItem("aifoo-theme");
-          if (storedTheme === "light" || storedTheme === "dark") {
-            theme = storedTheme;
+          if (storedTheme === "light" || storedTheme === "dark" || storedTheme === "system") {
+            themePreference = storedTheme;
           }
         } catch {
           // Ignore storage restrictions in file:// previews.
         }
+        const theme = themePreference === "system" ? systemTheme : themePreference;
         document.documentElement.dataset.theme = theme;
+        document.documentElement.dataset.themePreference = themePreference;
         document.documentElement.style.colorScheme = theme;
         document.body.dataset.theme = theme;
+        document.body.dataset.themePreference = themePreference;
         document.body.style.colorScheme = theme;
         document.body.classList.add("is-page-entering");
       })();
@@ -1637,6 +1641,8 @@
       const scrollSections = ["home", "tools", "pricing", "value", "faq", "cta"]
         .map((id) => document.getElementById(id))
         .filter(Boolean);
+      const systemThemeQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
+      const getSystemTheme = () => (systemThemeQuery?.matches ? "light" : "dark");
       const getStoredTheme = () => {
         try {
           return window.localStorage.getItem("aifoo-theme");
@@ -1651,6 +1657,8 @@
           // Ignore storage restrictions in file:// previews.
         }
       };
+      const resolveTheme = (themePreference) =>
+        themePreference === "light" || themePreference === "dark" ? themePreference : getSystemTheme();
       const lightOrbitConfigs = [
         { radiusX: 188, radiusY: 118, speed: 0.0052, angle: 0.24, tilt: 0.32, offsetX: -10, offsetY: -6 },
         { radiusX: 226, radiusY: 152, speed: -0.0041, angle: 1.58, tilt: -0.12, offsetX: 16, offsetY: -10 },
@@ -1666,14 +1674,20 @@
         { radiusX: 302, radiusY: 164, speed: 0.0039, angle: 5.36, tilt: 0.9, offsetX: -14, offsetY: 18 }
       ];
 
-      const applyTheme = (theme, { persist = false } = {}) => {
-        const nextTheme = theme === "light" ? "light" : "dark";
+      const applyTheme = (themePreference, { persist = false } = {}) => {
+        const nextThemePreference =
+          themePreference === "light" || themePreference === "dark" || themePreference === "system"
+            ? themePreference
+            : "system";
+        const nextTheme = resolveTheme(nextThemePreference);
         document.documentElement.dataset.theme = nextTheme;
+        document.documentElement.dataset.themePreference = nextThemePreference;
         document.documentElement.style.colorScheme = nextTheme;
         body.dataset.theme = nextTheme;
+        body.dataset.themePreference = nextThemePreference;
         body.style.colorScheme = nextTheme;
         if (persist) {
-          setStoredTheme(nextTheme);
+          setStoredTheme(nextThemePreference);
         }
       };
 
@@ -1768,7 +1782,7 @@
       };
 
       const storedTheme = getStoredTheme();
-      applyTheme(storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark");
+      applyTheme(storedTheme === "light" || storedTheme === "dark" || storedTheme === "system" ? storedTheme : "system");
       window.applyAifooTheme = applyTheme;
 
       themeToggle?.addEventListener("click", () => {
@@ -1778,8 +1792,16 @@
 
       window.addEventListener("storage", (event) => {
         if (event.key === "aifoo-theme") {
-          applyTheme(event.newValue);
+          applyTheme(event.newValue || "system");
         }
+      });
+
+      systemThemeQuery?.addEventListener?.("change", () => {
+        const storedPreference = getStoredTheme();
+        if (storedPreference === "light" || storedPreference === "dark") {
+          return;
+        }
+        applyTheme("system");
       });
 
       navStateLinks.forEach((link) => {
