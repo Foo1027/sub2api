@@ -169,8 +169,8 @@
         transform: translateX(-50%) translateY(var(--page-shift-y));
         opacity: var(--page-opacity);
         transition:
-          transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-          opacity 320ms ease,
+          transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 210ms ease,
           color var(--theme-duration) var(--theme-ease),
           background-color var(--theme-duration) var(--theme-ease),
           border-color var(--theme-duration) var(--theme-ease),
@@ -306,8 +306,8 @@
         transform: translateY(-50%);
         opacity: var(--page-opacity);
         transition:
-          transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-          opacity 320ms ease;
+          transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 210ms ease;
       }
 
       .side-index a {
@@ -392,8 +392,8 @@
         opacity: var(--page-opacity);
         transform: translateY(var(--page-shift-y));
         transition:
-          transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-          opacity 320ms ease;
+          transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 210ms ease;
       }
 
       .two-col {
@@ -1031,9 +1031,9 @@
       }
 
       .price-card.is-featured .button {
-        border-color: rgba(var(--accent-ember-rgb), 0.26);
-        background: rgba(var(--accent-ember-rgb), 0.1);
-        color: var(--accent-ember);
+        border-color: rgba(var(--accent-sunset-rgb), 0.7);
+        background: rgba(var(--accent-sunset-rgb), 0.22);
+        color: #fff4ea;
       }
 
       .price-badge {
@@ -1048,8 +1048,8 @@
         padding: 0 14px;
         border: 0;
         border-radius: var(--pill);
-        background: rgba(var(--accent-ember-rgb), 0.1);
-        color: var(--accent-ember);
+        background: rgba(var(--accent-sunset-rgb), 0.88);
+        color: #fff7f0;
         font-size: 11px;
         font-weight: 600;
         letter-spacing: 0.16em;
@@ -1747,7 +1747,7 @@
             body.classList.add("is-page-leaving");
             window.setTimeout(() => {
               window.location.href = url.href;
-            }, 280);
+            }, 170);
           });
         });
       };
