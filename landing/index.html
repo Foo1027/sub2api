@@ -319,6 +319,11 @@
         cursor: pointer;
       }
 
+      .side-index a.is-active {
+        background: #ffffff;
+        border-color: #ffffff;
+      }
+
       body[data-theme="light"] .side-index a {
         background: rgba(23, 21, 26, 0.08);
       }
@@ -326,7 +331,6 @@
       body[data-theme="light"] .side-index a.is-active {
         background: var(--accent-sunset);
         border-color: var(--accent-sunset);
-        box-shadow: 0 0 0 6px rgba(var(--accent-sunset-rgb), 0.14);
       }
 
       body[data-view="docs"] .side-index,
@@ -922,17 +926,7 @@
         width: 24px;
         height: 24px;
         display: block;
-        background: currentColor;
-        -webkit-mask: url("./landing-assets/head_white_transparent.svg") center / contain no-repeat;
-        mask: url("./landing-assets/head_white_transparent.svg") center / contain no-repeat;
-      }
-
-      body[data-theme="light"] .icon-badge.is-hermes-art::before {
-        width: 24px;
-        height: 24px;
         background: center / contain no-repeat url("./landing-assets/hermes_agent_avatar.svg");
-        -webkit-mask: none;
-        mask: none;
       }
 
       .icon-badge.is-openclaw {
