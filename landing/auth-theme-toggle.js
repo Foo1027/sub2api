@@ -1,9 +1,20 @@
 (() => {
   const STORAGE_KEY = "aifoo-auth-theme";
+  const AUTH_ROUTES = new Set([
+    "/login",
+    "/register",
+    "/forgot-password",
+    "/reset-password",
+    "/email-verify",
+  ]);
   const root = document.documentElement;
   const media = window.matchMedia
     ? window.matchMedia("(prefers-color-scheme: light)")
     : null;
+
+  function isAuthRoute() {
+    return AUTH_ROUTES.has(window.location.pathname);
+  }
 
   function getStoredTheme() {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -55,9 +66,34 @@
     return button;
   }
 
+  function removeButton() {
+    const button = document.querySelector(".auth-theme-toggle");
+    if (button) {
+      button.remove();
+    }
+  }
+
+  function syncButton() {
+    if (isAuthRoute()) {
+      ensureButton();
+    } else {
+      removeButton();
+    }
+  }
+
+  function patchHistoryMethod(methodName) {
+    const original = window.history[methodName];
+    if (typeof original !== "function") return;
+    window.history[methodName] = function (...args) {
+      const result = original.apply(this, args);
+      syncButton();
+      return result;
+    };
+  }
+
   function boot() {
     applyTheme(resolveTheme(), { persist: false });
-    ensureButton();
+    syncButton();
   }
 
   if (media && media.addEventListener) {
@@ -67,6 +103,11 @@
       }
     });
   }
+
+  patchHistoryMethod("pushState");
+  patchHistoryMethod("replaceState");
+  window.addEventListener("popstate", syncButton);
+  window.addEventListener("hashchange", syncButton);
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot, { once: true });
