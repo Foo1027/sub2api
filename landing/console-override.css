@@ -1840,3 +1840,17 @@ html.dark.console-shell.route-admin-orders .card.p-4 .flex-1.sm\:max-w-64 {
   border-radius: 18px !important;
   overflow: hidden;
 }
+
+html.console-shell.route-orders .rounded-xl.bg-gray-50.p-4,
+html.console-shell.route-admin-orders .rounded-xl.bg-gray-50.p-4,
+html.console-shell.route-admin-orders .max-h-48.space-y-2.overflow-y-auto > .rounded-lg.border.border-gray-100.bg-gray-50.p-2\.5 {
+  border-radius: 22px !important;
+}
+
+html.dark.console-shell.route-orders .rounded-xl.bg-gray-50.p-4,
+html.dark.console-shell.route-admin-orders .rounded-xl.bg-gray-50.p-4,
+html.dark.console-shell.route-admin-orders .max-h-48.space-y-2.overflow-y-auto > .rounded-lg.border.border-gray-100.bg-gray-50.p-2\.5,
+html.dark.console-shell.route-orders .dark\:bg-dark-800,
+html.dark.console-shell.route-admin-orders .dark\:bg-dark-800 {
+  border-radius: 22px !important;
+}
