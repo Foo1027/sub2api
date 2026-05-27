@@ -738,6 +738,9 @@ html.console-shell .table-scroll-container th {
 html.console-shell .table-scroll-container td {
   color: #211a14 !important;
   border-bottom-color: rgba(20, 18, 16, 0.06) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.928), rgba(252, 249, 245, 0.938)),
+    rgba(255, 255, 255, 0.934) !important;
 }
 
 html.console-shell .table-scroll-container tbody tr {
@@ -745,7 +748,9 @@ html.console-shell .table-scroll-container tbody tr {
 }
 
 html.console-shell .table-scroll-container tbody tr:hover td {
-  background: rgba(255, 248, 242, 0.72) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.948), rgba(250, 245, 240, 0.956)),
+    rgba(255, 249, 245, 0.952) !important;
 }
 
 html.console-shell .table-scroll-container tbody tr:last-child td {
@@ -1247,6 +1252,9 @@ html.dark.console-shell .table-scroll-container th {
 
 html.dark.console-shell .table-scroll-container td {
   color: #d8dae0 !important;
+  background:
+    linear-gradient(180deg, rgba(22, 29, 41, 0.952), rgba(19, 25, 36, 0.962)),
+    rgba(19, 25, 36, 0.956) !important;
 }
 
 html.dark.console-shell .table-scroll-container,
@@ -1363,7 +1371,9 @@ html.dark.console-shell .table-scroll-container tbody .text-\[11px\] {
 }
 
 html.dark.console-shell .table-scroll-container tbody tr:hover td {
-  background: rgba(255, 255, 255, 0.028) !important;
+  background:
+    linear-gradient(180deg, rgba(27, 36, 50, 0.962), rgba(22, 30, 43, 0.972)),
+    rgba(24, 32, 46, 0.968) !important;
 }
 
 html.dark.console-shell .table-scroll-container tbody .badge-gray,
