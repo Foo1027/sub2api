@@ -77,6 +77,7 @@
   }
 
   function clearShellClass() {
+    document.documentElement.classList.remove('console-shell-pending')
     document.documentElement.classList.remove('console-shell')
     document.body.classList.remove('console-override-active')
     Array.prototype.slice
@@ -227,6 +228,7 @@
     tagSidebarLinks(nav)
     ensureSidebarHeadings(nav)
     swapLogoByTheme()
+    document.documentElement.classList.remove('console-shell-pending')
     return true
   }
 

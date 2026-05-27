@@ -12,6 +12,7 @@
   }
 
   function clearAuthSkin() {
+    document.documentElement.classList.remove("auth-shell-pending");
     document.body.classList.remove("auth-landing-page", "auth-packy-page");
 
     document.querySelectorAll(".aifoo-auth-decoration").forEach((node) => node.remove());
@@ -100,6 +101,8 @@
     if (copyright) {
       copyright.classList.add("aifoo-auth-copyright");
     }
+
+    document.documentElement.classList.remove("auth-shell-pending");
   }
 
   const observer = new MutationObserver(() => {

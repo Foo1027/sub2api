@@ -22,6 +22,12 @@
     linear-gradient(180deg, rgba(255, 252, 248, 0.82), rgba(249, 242, 234, 0.66));
 }
 
+html.console-shell-pending #app > .min-h-screen,
+html.console-shell-pending .relative.min-h-screen.transition-all.duration-300 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 html.console-shell body {
   background-color: #f4efe7;
 }

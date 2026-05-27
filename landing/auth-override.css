@@ -44,6 +44,11 @@ html:not(.dark) {
   color-scheme: light;
 }
 
+html.auth-shell-pending body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-hidden.p-4 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 body {
   margin: 0;
   color: var(--auth-ink) !important;
