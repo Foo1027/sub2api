@@ -27,10 +27,13 @@ html.console-shell .sidebar {
     rgba(255, 255, 255, 0.82) !important;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
 }
 
 html.console-shell .sidebar-header {
-  padding-top: 10px;
+  margin: 0 12px 10px;
+  padding: 16px 6px 14px;
+  border-bottom: 1px solid rgba(20, 18, 16, 0.08);
 }
 
 html.console-shell .sidebar-logo {
@@ -49,14 +52,15 @@ html.console-shell .sidebar-logo img {
 html.console-shell .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 0.18rem;
+  gap: 0.82rem;
+  padding: 8px 12px 12px;
 }
 
 html.console-shell .console-nav-heading {
-  margin-top: 0.95rem;
-  margin-bottom: 0.42rem;
-  padding-left: 0.85rem;
-  padding-right: 0.85rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.46rem;
+  padding-left: 0.95rem;
+  padding-right: 0.95rem;
   font-size: 10px !important;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -73,6 +77,21 @@ html.console-shell .sidebar-brand-title {
   letter-spacing: -0.04em;
 }
 
+html.console-shell .sidebar-brand {
+  gap: 0.1rem;
+}
+
+html.console-shell .sidebar-section {
+  position: relative;
+  padding: 0.1rem 0 0;
+}
+
+html.console-shell .sidebar-section + .sidebar-section {
+  margin-top: -0.15rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(20, 18, 16, 0.06);
+}
+
 html.console-shell .sidebar-section-title {
   color: rgba(73, 62, 52, 0.64) !important;
   letter-spacing: 0.14em;
@@ -86,8 +105,8 @@ html.console-shell .console-nav-heading.sidebar-section-title {
 
 html.console-shell .console-nav-heading.sidebar-section-title::after {
   opacity: 1;
-  left: 0.85rem;
-  right: 0.85rem;
+  left: 0.95rem;
+  right: 0.95rem;
   top: auto;
   bottom: -0.12rem;
   transform: none;
@@ -101,6 +120,9 @@ html.console-shell .console-nav-heading .sidebar-section-title-text {
 }
 
 html.console-shell .sidebar-link {
+  min-height: 42px;
+  padding-left: 0.95rem !important;
+  padding-right: 0.95rem !important;
   border-radius: 14px !important;
   color: rgba(38, 31, 24, 0.78) !important;
   transition:
@@ -928,13 +950,18 @@ html.dark.console-shell .bg-mesh-gradient {
 html.dark.console-shell .sidebar {
   border-right: 1px solid var(--console-panel-line) !important;
   background:
-    linear-gradient(180deg, rgba(9, 12, 18, 0.94), rgba(11, 15, 22, 0.82)),
-    rgba(9, 12, 18, 0.9) !important;
+    radial-gradient(circle at 18% 0%, rgba(var(--console-accent-rgb), 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(8, 12, 22, 0.98), rgba(11, 17, 30, 0.96)),
+    rgba(9, 12, 18, 0.94) !important;
   box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.02);
 }
 
 html.dark.console-shell .sidebar-brand-title {
   color: #fff !important;
+}
+
+html.dark.console-shell .sidebar-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 html.dark.console-shell .sidebar-section-title {
@@ -947,6 +974,10 @@ html.dark.console-shell .console-nav-heading {
 
 html.dark.console-shell .console-nav-heading.sidebar-section-title::after {
   background: linear-gradient(90deg, rgba(var(--console-accent-rgb), 0.24), rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0));
+}
+
+html.dark.console-shell .sidebar-section + .sidebar-section {
+  border-top-color: rgba(255, 255, 255, 0.05);
 }
 
 html.dark.console-shell .sidebar-link {

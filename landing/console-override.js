@@ -3,6 +3,9 @@
     '/dashboard',
     '/keys',
     '/usage',
+    '/monitor',
+    '/pricing',
+    '/docs',
     '/channel-status',
     '/purchase',
     '/orders',
@@ -14,16 +17,19 @@
   ])
 
   var userGroupMatchers = [
-    ['/keys', 'account'],
-    ['/usage', 'account'],
-    ['/monitor', 'account'],
-    ['/subscriptions', 'account'],
-    ['/purchase', 'account'],
-    ['/orders', 'account'],
-    ['/redeem', 'account'],
-    ['/affiliate', 'account'],
-    ['/profile', 'account'],
-    ['/custom/', 'account']
+    ['/dashboard', 'user-overview'],
+    ['/keys', 'user-api'],
+    ['/usage', 'user-api'],
+    ['/monitor', 'user-api'],
+    ['/pricing', 'user-api'],
+    ['/custom/', 'user-api'],
+    ['/subscriptions', 'user-billing'],
+    ['/purchase', 'user-billing'],
+    ['/orders', 'user-billing'],
+    ['/redeem', 'user-billing'],
+    ['/affiliate', 'user-billing'],
+    ['/docs', 'user-other'],
+    ['/profile', 'user-other']
   ]
 
   var adminGroupMatchers = [
@@ -52,7 +58,10 @@
     'admin-growth': '增长工具',
     'admin-finance': '订单与统计',
     'admin-system': '系统配置',
-    'account': '我的账户'
+    'account': '我的账户',
+    'user-api': 'API',
+    'user-billing': '账单',
+    'user-other': '其他'
   }
 
   var buttonLabelMatchers = [
@@ -159,6 +168,7 @@
       if (!group || seen[group]) return
       seen[group] = true
       if (forceAccountTitle && group === 'account') return
+      if (group === 'user-overview') return
       section.insertBefore(createHeading(labelMap[group] || ''), item)
     })
   }
