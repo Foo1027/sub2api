@@ -64,6 +64,20 @@
     if (!isConsoleRoute(path)) return false
     document.documentElement.classList.add('console-shell')
     document.body.classList.add('console-override-active')
+    Array.prototype.slice
+      .call(document.documentElement.classList)
+      .forEach(function (cls) {
+        if (cls.indexOf('route-') === 0) document.documentElement.classList.remove(cls)
+      })
+    var routeClass =
+      'route-' +
+      path
+        .replace(/^\/+|\/+$/g, '')
+        .replace(/[^a-zA-Z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+    if (routeClass !== 'route-') {
+      document.documentElement.classList.add(routeClass)
+    }
     return true
   }
 
