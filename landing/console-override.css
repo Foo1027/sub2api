@@ -46,6 +46,27 @@ html.console-shell .sidebar-logo img {
   filter: drop-shadow(0 0 24px rgba(239, 122, 23, 0.16));
 }
 
+html.console-shell .sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+html.console-shell .console-nav-heading {
+  margin-top: 0.9rem;
+  margin-bottom: 0.3rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  font-size: 10px !important;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+}
+
+html.console-shell .console-nav-heading:first-child {
+  margin-top: 0.15rem;
+}
+
 html.console-shell .sidebar-brand-title {
   font-size: 22px !important;
   color: #161411 !important;
@@ -88,6 +109,41 @@ html.console-shell header.glass {
   border-bottom: 1px solid rgba(20, 18, 16, 0.08) !important;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+}
+
+html.console-shell .relative.min-h-screen.transition-all.duration-300 {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(var(--console-accent-rgb), 0.08), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(124, 58, 237, 0.08), transparent 26%),
+    linear-gradient(180deg, #e8eeef 0%, #edf1f1 18%, #f4efe7 48%, #f7f1e9 100%) !important;
+}
+
+html.console-shell .relative.min-h-screen.transition-all.duration-300::before {
+  content: "";
+  position: fixed;
+  top: 84px;
+  right: 36px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--console-accent-rgb), 0.12) 0%, rgba(var(--console-accent-rgb), 0.03) 42%, rgba(var(--console-accent-rgb), 0) 74%);
+  filter: blur(14px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+html.console-shell .relative.min-h-screen.transition-all.duration-300::after {
+  content: "";
+  position: fixed;
+  bottom: 10%;
+  left: 26%;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160, 195, 236, 0.14) 0%, rgba(160, 195, 236, 0.04) 40%, rgba(160, 195, 236, 0) 72%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 html.console-shell header.glass .rounded-xl,
@@ -429,6 +485,57 @@ html.console-shell .h-8.w-8.animate-spin.rounded-full.border-2 {
   border-top-color: rgba(var(--console-accent-rgb), 0.95) !important;
 }
 
+html.console-shell .max-h-48.space-y-2.overflow-y-auto > div,
+html.console-shell .max-h-48.space-y-2.overflow-y-auto .rounded-lg.border,
+html.console-shell .grid.grid-cols-2.gap-4 > div > p.text-sm,
+html.console-shell .grid.grid-cols-2.gap-4 > div > .text-sm {
+  border-color: rgba(20, 18, 16, 0.08);
+}
+
+html.console-shell .flex.flex-wrap.items-center.gap-3,
+html.console-shell .flex.flex-wrap-reverse.items-start.justify-between.gap-3,
+html.console-shell .flex.flex-col.justify-between.gap-4.lg\:flex-row.lg\:items-start {
+  position: relative;
+  z-index: 1;
+}
+
+html.console-shell .flex.items-center.gap-2.rounded-full.bg-primary-100.px-2.py-0\.5,
+html.console-shell .rounded-full.bg-primary-100.px-2.py-0\.5 {
+  background: rgba(var(--console-accent-rgb), 0.12) !important;
+  color: #c45c08 !important;
+}
+
+html.console-shell .inline-flex.items-center.rounded.px-2.py-0\.5.text-xs.font-medium,
+html.console-shell .inline-flex.items-center.rounded-md.px-2.py-0\.5.text-xs.font-medium {
+  border-radius: 999px !important;
+}
+
+html.console-shell .flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-yellow-600,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-blue-600,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-purple-600,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-red-600 {
+  border: 1px solid rgba(20, 18, 16, 0.08);
+  background: rgba(255, 255, 255, 0.62) !important;
+}
+
+html.console-shell .flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600:hover,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600:hover,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-yellow-600:hover,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-blue-600:hover,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-purple-600:hover,
+html.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-red-600:hover {
+  background: rgba(var(--console-accent-rgb), 0.08) !important;
+}
+
+html.console-shell .card.p-4 > .flex.items-center.gap-3 > div:last-child,
+html.console-shell .card.p-4 .flex-1,
+html.console-shell .card.p-4 .min-w-0.flex-1 {
+  position: relative;
+  z-index: 1;
+}
+
 html.console-shell .table-page-layout {
   gap: 18px !important;
 }
@@ -658,6 +765,10 @@ html.dark.console-shell .sidebar-section-title {
   color: rgba(216, 218, 224, 0.52) !important;
 }
 
+html.dark.console-shell .console-nav-heading {
+  color: rgba(216, 218, 224, 0.42) !important;
+}
+
 html.dark.console-shell .sidebar-link {
   color: rgba(216, 218, 224, 0.92) !important;
 }
@@ -680,6 +791,21 @@ html.dark.console-shell .sidebar-link-active {
 html.dark.console-shell header.glass {
   background: rgba(18, 20, 26, 0.82) !important;
   border-bottom: 1px solid var(--console-panel-line) !important;
+}
+
+html.dark.console-shell .relative.min-h-screen.transition-all.duration-300 {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(var(--console-accent-rgb), 0.12), transparent 24%),
+    radial-gradient(circle at 82% 8%, rgba(124, 58, 237, 0.12), transparent 28%),
+    linear-gradient(180deg, #080808 0%, #0a0a0a 28%, #0d1116 100%) !important;
+}
+
+html.dark.console-shell .relative.min-h-screen.transition-all.duration-300::before {
+  background: radial-gradient(circle, rgba(var(--console-accent-rgb), 0.18) 0%, rgba(var(--console-accent-rgb), 0.05) 42%, rgba(var(--console-accent-rgb), 0) 74%);
+}
+
+html.dark.console-shell .relative.min-h-screen.transition-all.duration-300::after {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.16) 0%, rgba(124, 58, 237, 0.04) 42%, rgba(124, 58, 237, 0) 74%);
 }
 
 html.dark.console-shell header.glass .text-lg,
@@ -914,6 +1040,31 @@ html.dark.console-shell .flex.flex-col.items-center.gap-0\.5.rounded-lg.p-1\.5:h
 html.dark.console-shell .h-8.w-8.animate-spin.rounded-full.border-2 {
   border-color: rgba(var(--console-accent-rgb), 0.2) !important;
   border-top-color: rgba(var(--console-accent-rgb), 0.92) !important;
+}
+
+html.dark.console-shell .flex.items-center.gap-2.rounded-full.bg-primary-100.px-2.py-0\.5,
+html.dark.console-shell .rounded-full.bg-primary-100.px-2.py-0\.5 {
+  background: rgba(var(--console-accent-rgb), 0.16) !important;
+  color: #ffbf8b !important;
+}
+
+html.dark.console-shell .flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-yellow-600,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-blue-600,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-purple-600,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-red-600 {
+  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+html.dark.console-shell .flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600:hover,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-gray-600:hover,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-yellow-600:hover,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-blue-600:hover,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-purple-600:hover,
+html.dark.console-shell .inline-flex.items-center.gap-1.rounded-md.px-2.py-1.text-xs.font-medium.text-red-600:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 
 html.dark.console-shell .layout-section-fixed > * {
