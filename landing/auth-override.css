@@ -123,6 +123,7 @@ body > #app > .relative.flex.min-h-screen.items-center.justify-center.overflow-h
   width: 148px !important;
   height: 148px !important;
   margin: 0 !important;
+  transform: translateY(-20px);
   border: none !important;
   border-radius: 0 !important;
   background: transparent !important;
