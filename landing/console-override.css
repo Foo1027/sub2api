@@ -53,13 +53,13 @@ html.console-shell .sidebar-nav {
 }
 
 html.console-shell .console-nav-heading {
-  margin-top: 0.9rem;
-  margin-bottom: 0.3rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  margin-top: 0.95rem;
+  margin-bottom: 0.42rem;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
   font-size: 10px !important;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   line-height: 1.2;
 }
 
@@ -74,9 +74,30 @@ html.console-shell .sidebar-brand-title {
 }
 
 html.console-shell .sidebar-section-title {
-  color: rgba(73, 62, 52, 0.56) !important;
-  letter-spacing: 0.16em;
+  color: rgba(73, 62, 52, 0.64) !important;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+html.console-shell .console-nav-heading.sidebar-section-title {
+  position: relative;
+  min-height: auto;
+}
+
+html.console-shell .console-nav-heading.sidebar-section-title::after {
+  opacity: 1;
+  left: 0.85rem;
+  right: 0.85rem;
+  top: auto;
+  bottom: -0.12rem;
+  transform: none;
+  background: linear-gradient(90deg, rgba(var(--console-accent-rgb), 0.22), rgba(133, 104, 72, 0.08) 54%, rgba(133, 104, 72, 0));
+}
+
+html.console-shell .console-nav-heading .sidebar-section-title-text {
+  opacity: 1 !important;
+  transform: none !important;
+  font-size: 10px !important;
 }
 
 html.console-shell .sidebar-link {
@@ -917,11 +938,15 @@ html.dark.console-shell .sidebar-brand-title {
 }
 
 html.dark.console-shell .sidebar-section-title {
-  color: rgba(216, 218, 224, 0.52) !important;
+  color: rgba(216, 218, 224, 0.62) !important;
 }
 
 html.dark.console-shell .console-nav-heading {
-  color: rgba(216, 218, 224, 0.42) !important;
+  color: rgba(216, 218, 224, 0.56) !important;
+}
+
+html.dark.console-shell .console-nav-heading.sidebar-section-title::after {
+  background: linear-gradient(90deg, rgba(var(--console-accent-rgb), 0.24), rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0));
 }
 
 html.dark.console-shell .sidebar-link {

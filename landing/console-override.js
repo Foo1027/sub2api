@@ -55,6 +55,15 @@
     'account': '我的账户'
   }
 
+  var buttonLabelMatchers = [
+    ['渠道管理', 'admin-channel'],
+    ['channel', 'admin-channel'],
+    ['邀请返利', 'admin-growth'],
+    ['affiliate', 'admin-growth'],
+    ['订单管理', 'admin-finance'],
+    ['order', 'admin-finance']
+  ]
+
   function isConsoleRoute(path) {
     return exactRoutes.has(path) || path.indexOf('/admin') === 0
   }
@@ -95,6 +104,15 @@
       if (source.indexOf(entry[0]) === 0) group = entry[1]
     })
 
+    if (!group) {
+      var text = (item.textContent || item.getAttribute('title') || '').trim().toLowerCase()
+      buttonLabelMatchers.forEach(function (entry) {
+        if (!group && text.indexOf(String(entry[0]).toLowerCase()) !== -1) {
+          group = entry[1]
+        }
+      })
+    }
+
     return group
   }
 
@@ -106,27 +124,57 @@
     })
   }
 
-  function ensureSidebarHeadings(nav) {
-    if (nav.getAttribute('data-console-grouped') === 'true') return
+  function cleanupInjectedSidebarHeadings(nav) {
+    nav.querySelectorAll('[data-console-heading="true"]').forEach(function (node) {
+      node.remove()
+    })
+  }
 
-    var children = Array.prototype.slice.call(nav.children)
+  function createHeading(label) {
+    var heading = document.createElement('div')
+    heading.className = 'console-nav-heading sidebar-section-title'
+    heading.setAttribute('data-console-heading', 'true')
+
+    var text = document.createElement('span')
+    text.className = 'sidebar-section-title-text'
+    text.textContent = label
+
+    heading.appendChild(text)
+    return heading
+  }
+
+  function ensureSectionHeadings(section, forceAccountTitle) {
+    var items = Array.prototype.slice.call(section.querySelectorAll(':scope > .sidebar-link, :scope > button.sidebar-link'))
+    if (!items.length) return
+
     var seen = {}
+    var firstItem = items[0]
 
-    children.forEach(function (child) {
-      var group =
-        child.getAttribute('data-nav-group') ||
-        child.querySelector('[data-nav-group]')?.getAttribute('data-nav-group')
+    if (forceAccountTitle) {
+      section.insertBefore(createHeading(labelMap.account), firstItem)
+    }
 
+    items.forEach(function (item) {
+      var group = item.getAttribute('data-nav-group') || getGroupForItem(item)
       if (!group || seen[group]) return
       seen[group] = true
-
-      var heading = document.createElement('div')
-      heading.className = 'console-nav-heading sidebar-section-title'
-      heading.textContent = labelMap[group] || ''
-      nav.insertBefore(heading, child)
+      if (forceAccountTitle && group === 'account') return
+      section.insertBefore(createHeading(labelMap[group] || ''), item)
     })
+  }
 
-    nav.setAttribute('data-console-grouped', 'true')
+  function ensureSidebarHeadings(nav) {
+    cleanupInjectedSidebarHeadings(nav)
+
+    var sections = Array.prototype.slice.call(nav.querySelectorAll(':scope > .sidebar-section'))
+    if (!sections.length) return
+
+    if (sections.length === 1) {
+      ensureSectionHeadings(sections[0], true)
+      return
+    }
+
+    ensureSectionHeadings(sections[0], false)
   }
 
   function swapLogoByTheme() {
