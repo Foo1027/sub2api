@@ -756,8 +756,8 @@ html.console-shell .table-scroll-container .sticky-col,
 html.console-shell .table-scroll-container .sticky-header-cell.sticky-col,
 html.console-shell .table-scroll-container tbody .sticky-col {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 242, 235, 0.98)),
-    rgba(255, 255, 255, 0.96) !important;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 247, 241, 0.96)),
+    rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -767,8 +767,8 @@ html.console-shell .table-scroll-container tbody .sticky-col-left,
 html.console-shell .table-scroll-container tbody .sticky-col-left-first,
 html.console-shell .table-scroll-container tbody .sticky-col-left-second,
 html.console-shell .table-scroll-container tbody .sticky-col-right {
-  background-color: rgba(252, 249, 245, 0.995) !important;
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.985), rgba(247, 241, 234, 0.995)) !important;
+  background-color: rgba(255, 255, 255, 0.972) !important;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.965), rgba(250, 246, 240, 0.978)) !important;
 }
 
 html.console-shell .table-scroll-container tr:hover .sticky-col,
@@ -782,27 +782,27 @@ html.console-shell .table-scroll-container tbody tr:hover .sticky-col-left,
 html.console-shell .table-scroll-container tbody tr:hover .sticky-col-left-first,
 html.console-shell .table-scroll-container tbody tr:hover .sticky-col-left-second,
 html.console-shell .table-scroll-container tbody tr:hover .sticky-col-right {
-  background-color: rgba(249, 244, 237, 0.998) !important;
-  background-image: linear-gradient(180deg, rgba(255, 251, 246, 0.995), rgba(246, 239, 232, 0.998)) !important;
+  background-color: rgba(255, 249, 244, 0.985) !important;
+  background-image: linear-gradient(180deg, rgba(255, 251, 247, 0.982), rgba(248, 242, 236, 0.988)) !important;
 }
 
 html.console-shell .table-scroll-container .sticky-col-left,
 html.console-shell .table-scroll-container .sticky-col-left-first,
 html.console-shell .table-scroll-container .sticky-col-left-second {
-  box-shadow: 12px 0 24px rgba(23, 21, 26, 0.08);
+  box-shadow: 8px 0 18px rgba(23, 21, 26, 0.045);
 }
 
 html.console-shell .table-scroll-container .sticky-col-right {
-  box-shadow: -12px 0 24px rgba(23, 21, 26, 0.08);
+  box-shadow: -8px 0 18px rgba(23, 21, 26, 0.045);
 }
 
 html.console-shell .table-scroll-container.is-scrollable .sticky-col-left::after,
 html.console-shell .table-scroll-container.is-scrollable .sticky-col-left-second::after {
-  background: linear-gradient(to right, rgba(133, 104, 72, 0.18), rgba(252, 249, 245, 0)) !important;
+  background: linear-gradient(to right, rgba(133, 104, 72, 0.1), rgba(255, 255, 255, 0)) !important;
 }
 
 html.console-shell .table-scroll-container.is-scrollable .sticky-col-right::before {
-  background: linear-gradient(to left, rgba(133, 104, 72, 0.18), rgba(252, 249, 245, 0)) !important;
+  background: linear-gradient(to left, rgba(133, 104, 72, 0.1), rgba(255, 255, 255, 0)) !important;
 }
 
 html.console-shell .inline-flex.items-center.gap-1\\.5.rounded-md {
@@ -822,7 +822,7 @@ html.console-shell .table-scroll-container tr:hover .sticky-col-left,
 html.console-shell .table-scroll-container tr:hover .sticky-col-left-first,
 html.console-shell .table-scroll-container tr:hover .sticky-col-left-second,
 html.console-shell .table-scroll-container tr:hover .sticky-col-right {
-  background: linear-gradient(180deg, rgba(255, 251, 246, 0.995), rgba(246, 239, 232, 0.998)) !important;
+  background: linear-gradient(180deg, rgba(255, 251, 247, 0.982), rgba(248, 242, 236, 0.988)) !important;
 }
 
 html.console-shell code,
@@ -1285,7 +1285,7 @@ html.dark.console-shell .table-scroll-container .sticky-col,
 html.dark.console-shell .table-scroll-container .sticky-header-cell.sticky-col,
 html.dark.console-shell .table-scroll-container tbody .sticky-col {
   background:
-    linear-gradient(180deg, rgba(21, 28, 40, 0.98), rgba(17, 24, 36, 0.99)),
+    linear-gradient(180deg, rgba(22, 29, 41, 0.975), rgba(18, 24, 35, 0.985)),
     rgba(18, 24, 35, 0.98) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1296,8 +1296,8 @@ html.dark.console-shell .table-scroll-container tbody .sticky-col-left,
 html.dark.console-shell .table-scroll-container tbody .sticky-col-left-first,
 html.dark.console-shell .table-scroll-container tbody .sticky-col-left-second,
 html.dark.console-shell .table-scroll-container tbody .sticky-col-right {
-  background-color: rgba(18, 24, 35, 0.998) !important;
-  background-image: linear-gradient(180deg, rgba(23, 30, 43, 0.995), rgba(17, 24, 36, 0.998)) !important;
+  background-color: rgba(19, 25, 36, 0.992) !important;
+  background-image: linear-gradient(180deg, rgba(23, 30, 43, 0.988), rgba(18, 24, 35, 0.994)) !important;
 }
 
 html.dark.console-shell .table-scroll-container tr:hover .sticky-col,
@@ -1311,27 +1311,27 @@ html.dark.console-shell .table-scroll-container tbody tr:hover .sticky-col-left,
 html.dark.console-shell .table-scroll-container tbody tr:hover .sticky-col-left-first,
 html.dark.console-shell .table-scroll-container tbody tr:hover .sticky-col-left-second,
 html.dark.console-shell .table-scroll-container tbody tr:hover .sticky-col-right {
-  background-color: rgba(23, 31, 45, 0.999) !important;
-  background-image: linear-gradient(180deg, rgba(27, 36, 50, 0.997), rgba(20, 28, 41, 0.999)) !important;
+  background-color: rgba(24, 32, 46, 0.992) !important;
+  background-image: linear-gradient(180deg, rgba(27, 36, 50, 0.988), rgba(21, 29, 42, 0.994)) !important;
 }
 
 html.dark.console-shell .table-scroll-container .sticky-col-left,
 html.dark.console-shell .table-scroll-container .sticky-col-left-first,
 html.dark.console-shell .table-scroll-container .sticky-col-left-second {
-  box-shadow: 14px 0 28px rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 0 18px rgba(0, 0, 0, 0.2);
 }
 
 html.dark.console-shell .table-scroll-container .sticky-col-right {
-  box-shadow: -14px 0 28px rgba(0, 0, 0, 0.3);
+  box-shadow: -8px 0 18px rgba(0, 0, 0, 0.2);
 }
 
 html.dark.console-shell .table-scroll-container.is-scrollable .sticky-col-left::after,
 html.dark.console-shell .table-scroll-container.is-scrollable .sticky-col-left-second::after {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.38), rgba(18, 24, 35, 0)) !important;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(18, 24, 35, 0)) !important;
 }
 
 html.dark.console-shell .table-scroll-container.is-scrollable .sticky-col-right::before {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.38), rgba(18, 24, 35, 0)) !important;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.22), rgba(18, 24, 35, 0)) !important;
 }
 
 html.dark.console-shell .table-scroll-container tbody .text-gray-900,
@@ -1438,7 +1438,7 @@ html.dark.console-shell .table-scroll-container tr:hover .sticky-col-left,
 html.dark.console-shell .table-scroll-container tr:hover .sticky-col-left-first,
 html.dark.console-shell .table-scroll-container tr:hover .sticky-col-left-second,
 html.dark.console-shell .table-scroll-container tr:hover .sticky-col-right {
-  background: linear-gradient(180deg, rgba(27, 36, 50, 0.997), rgba(20, 28, 41, 0.999)) !important;
+  background: linear-gradient(180deg, rgba(27, 36, 50, 0.988), rgba(21, 29, 42, 0.994)) !important;
 }
 
 html.dark.console-shell code,
