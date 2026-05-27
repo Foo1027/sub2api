@@ -1,20 +1,31 @@
 (() => {
   const STORAGE_KEY = "aifoo-auth-theme";
   const root = document.documentElement;
-  const media = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
+  const media = window.matchMedia
+    ? window.matchMedia("(prefers-color-scheme: light)")
+    : null;
+
+  function getStoredTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved === "light" || saved === "dark" ? saved : null;
+  }
 
   function resolveTheme() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "light" || saved === "dark") {
+    const saved = getStoredTheme();
+    if (saved) {
       return saved;
     }
     return media && media.matches ? "light" : "dark";
   }
 
-  function applyTheme(theme) {
+  function applyTheme(theme, { persist = false } = {}) {
     const isLight = theme === "light";
-    root.classList.toggle("auth-light", isLight);
     root.classList.toggle("dark", !isLight);
+
+    if (persist) {
+      localStorage.setItem(STORAGE_KEY, theme);
+    }
+
     localStorage.setItem("theme", isLight ? "light" : "dark");
   }
 
@@ -37,23 +48,22 @@
       </svg>
     `;
     button.addEventListener("click", () => {
-      const nextTheme = root.classList.contains("auth-light") ? "dark" : "light";
-      localStorage.setItem(STORAGE_KEY, nextTheme);
-      applyTheme(nextTheme);
+      const nextTheme = root.classList.contains("dark") ? "light" : "dark";
+      applyTheme(nextTheme, { persist: true });
     });
     document.body.appendChild(button);
     return button;
   }
 
   function boot() {
-    applyTheme(resolveTheme());
+    applyTheme(resolveTheme(), { persist: false });
     ensureButton();
   }
 
   if (media && media.addEventListener) {
     media.addEventListener("change", () => {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        applyTheme(resolveTheme());
+      if (!getStoredTheme()) {
+        applyTheme(resolveTheme(), { persist: false });
       }
     });
   }

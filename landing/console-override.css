@@ -1,0 +1,361 @@
+:root {
+  --console-accent: #ef7a17;
+  --console-accent-rgb: 239, 122, 23;
+  --console-accent-soft: #ffb277;
+  --console-panel-line: rgba(255, 255, 255, 0.08);
+  --console-panel-line-strong: rgba(255, 255, 255, 0.14);
+  --console-panel-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+  --console-panel-shadow-soft: 0 18px 42px rgba(0, 0, 0, 0.16);
+  --console-radius-xl: 28px;
+  --console-radius-lg: 20px;
+  --console-radius-md: 16px;
+}
+
+html.console-shell body {
+  background-color: #f4efe7;
+}
+
+html.console-shell .bg-mesh-gradient {
+  opacity: 0.3;
+  filter: blur(12px) saturate(0.88);
+}
+
+html.console-shell .sidebar {
+  border-right: 1px solid rgba(20, 18, 16, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(248, 242, 234, 0.88)),
+    rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+html.console-shell .sidebar-header {
+  padding-top: 10px;
+}
+
+html.console-shell .sidebar-logo {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+html.console-shell .sidebar-logo img {
+  transform: scale(1.18);
+  transform-origin: center;
+  filter: drop-shadow(0 0 24px rgba(239, 122, 23, 0.16));
+}
+
+html.console-shell .sidebar-brand-title {
+  font-size: 22px !important;
+  color: #161411 !important;
+  letter-spacing: -0.04em;
+}
+
+html.console-shell .sidebar-section-title {
+  color: rgba(73, 62, 52, 0.56) !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+html.console-shell .sidebar-link {
+  border-radius: 14px !important;
+  color: rgba(38, 31, 24, 0.78) !important;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease !important;
+}
+
+html.console-shell .sidebar-link:hover {
+  background: rgba(239, 122, 23, 0.08) !important;
+  color: #161411 !important;
+}
+
+html.console-shell .sidebar-link-active {
+  color: #17120d !important;
+  border: 1px solid rgba(var(--console-accent-rgb), 0.18) !important;
+  background:
+    linear-gradient(90deg, rgba(var(--console-accent-rgb), 0.18), rgba(var(--console-accent-rgb), 0.06) 46%, rgba(255, 255, 255, 0.12)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+    0 12px 28px rgba(var(--console-accent-rgb), 0.12) !important;
+}
+
+html.console-shell header.glass {
+  background: rgba(255, 252, 248, 0.72) !important;
+  border-bottom: 1px solid rgba(20, 18, 16, 0.08) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+html.console-shell header.glass .rounded-xl,
+html.console-shell header.glass .rounded-lg {
+  border-radius: 999px !important;
+}
+
+html.console-shell header.glass .bg-primary-50,
+html.console-shell header.glass .dark\:bg-primary-900\/20 {
+  background: rgba(239, 122, 23, 0.08) !important;
+}
+
+html.console-shell header.glass .bg-gradient-to-br {
+  background: linear-gradient(135deg, #ef7a17, #ff9a45) !important;
+  box-shadow: none !important;
+}
+
+html.console-shell header.glass .hover\:bg-gray-100:hover,
+html.console-shell header.glass .dark\:hover\:bg-dark-800:hover {
+  background: rgba(239, 122, 23, 0.08) !important;
+}
+
+html.console-shell main {
+  padding-top: 24px !important;
+}
+
+html.console-shell .card,
+html.console-shell .glass-card,
+html.console-shell .table-scroll-container,
+html.console-shell .rounded-2xl.border,
+html.console-shell .rounded-xl.border,
+html.console-shell .rounded-lg.border,
+html.console-shell .dropdown {
+  border-color: rgba(20, 18, 16, 0.08) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(250, 245, 238, 0.92)),
+    rgba(255, 255, 255, 0.86) !important;
+  box-shadow: var(--console-panel-shadow-soft) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+html.console-shell .card,
+html.console-shell .glass-card {
+  border-radius: var(--console-radius-xl) !important;
+}
+
+html.console-shell .rounded-lg {
+  border-radius: var(--console-radius-md) !important;
+}
+
+html.console-shell .rounded-xl {
+  border-radius: var(--console-radius-lg) !important;
+}
+
+html.console-shell .rounded-2xl {
+  border-radius: var(--console-radius-xl) !important;
+}
+
+html.console-shell .btn,
+html.console-shell .btn-secondary,
+html.console-shell .btn-ghost {
+  border-color: rgba(20, 18, 16, 0.1) !important;
+  background: rgba(255, 255, 255, 0.66) !important;
+  box-shadow: none !important;
+}
+
+html.console-shell .btn:hover,
+html.console-shell .btn-secondary:hover,
+html.console-shell .btn-ghost:hover {
+  background: rgba(255, 250, 244, 0.94) !important;
+}
+
+html.console-shell .btn-primary,
+html.console-shell .btn-success,
+html.console-shell .btn-warning {
+  color: #fff !important;
+  border-color: rgba(var(--console-accent-rgb), 0.28) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01)),
+    rgba(var(--console-accent-rgb), 0.92) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--console-accent-rgb), 0.12),
+    0 16px 34px rgba(var(--console-accent-rgb), 0.22) !important;
+}
+
+html.console-shell .input,
+html.console-shell input,
+html.console-shell select,
+html.console-shell textarea,
+html.console-shell [role="textbox"],
+html.console-shell [role="combobox"] {
+  border-color: rgba(20, 18, 16, 0.1) !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+html.console-shell .input:focus,
+html.console-shell input:focus,
+html.console-shell select:focus,
+html.console-shell textarea:focus {
+  border-color: rgba(var(--console-accent-rgb), 0.42) !important;
+  box-shadow:
+    0 0 0 4px rgba(var(--console-accent-rgb), 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3) !important;
+}
+
+html.console-shell table thead,
+html.console-shell .table-header {
+  background: rgba(239, 122, 23, 0.06) !important;
+}
+
+html.console-shell .hover\:bg-gray-50:hover,
+html.console-shell .dark\:hover\:bg-dark-800:hover,
+html.console-shell tr:hover td {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+html.console-shell code,
+html.console-shell .code {
+  color: #c35c0a !important;
+  background: rgba(var(--console-accent-rgb), 0.08) !important;
+  border: 1px solid rgba(var(--console-accent-rgb), 0.14) !important;
+}
+
+html.dark.console-shell body {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(var(--console-accent-rgb), 0.12), transparent 24%),
+    radial-gradient(circle at 82% 8%, rgba(124, 58, 237, 0.12), transparent 28%),
+    linear-gradient(180deg, #080808 0%, #0a0a0a 28%, #0d1116 100%) !important;
+  background-color: #0a0a0a !important;
+}
+
+html.dark.console-shell #app > .min-h-screen {
+  background: transparent !important;
+}
+
+html.dark.console-shell .bg-mesh-gradient {
+  opacity: 0.22;
+  filter: saturate(0.66) blur(8px);
+}
+
+html.dark.console-shell .sidebar {
+  border-right: 1px solid var(--console-panel-line) !important;
+  background:
+    linear-gradient(180deg, rgba(9, 12, 18, 0.94), rgba(11, 15, 22, 0.82)),
+    rgba(9, 12, 18, 0.9) !important;
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.02);
+}
+
+html.dark.console-shell .sidebar-brand-title {
+  color: #fff !important;
+}
+
+html.dark.console-shell .sidebar-section-title {
+  color: rgba(216, 218, 224, 0.52) !important;
+}
+
+html.dark.console-shell .sidebar-link {
+  color: rgba(216, 218, 224, 0.92) !important;
+}
+
+html.dark.console-shell .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #fff !important;
+}
+
+html.dark.console-shell .sidebar-link-active {
+  color: #fff !important;
+  border-color: rgba(var(--console-accent-rgb), 0.18) !important;
+  background:
+    linear-gradient(90deg, rgba(var(--console-accent-rgb), 0.18), rgba(var(--console-accent-rgb), 0.05) 42%, rgba(255, 255, 255, 0.01)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--console-accent-rgb), 0.08),
+    0 14px 34px rgba(var(--console-accent-rgb), 0.08) !important;
+}
+
+html.dark.console-shell header.glass {
+  background: rgba(18, 20, 26, 0.82) !important;
+  border-bottom: 1px solid var(--console-panel-line) !important;
+}
+
+html.dark.console-shell header.glass .text-lg,
+html.dark.console-shell header.glass .font-semibold,
+html.dark.console-shell header.glass .font-medium {
+  color: #fff !important;
+}
+
+html.dark.console-shell header.glass .text-xs,
+html.dark.console-shell header.glass .text-sm,
+html.dark.console-shell header.glass .text-gray-500,
+html.dark.console-shell header.glass .text-gray-600,
+html.dark.console-shell header.glass .dark\:text-dark-400,
+html.dark.console-shell header.glass .dark\:text-dark-300 {
+  color: rgba(216, 218, 224, 0.62) !important;
+}
+
+html.dark.console-shell header.glass .bg-primary-50,
+html.dark.console-shell header.glass .dark\:bg-primary-900\/20 {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+html.dark.console-shell .card,
+html.dark.console-shell .glass-card,
+html.dark.console-shell .table-scroll-container,
+html.dark.console-shell .rounded-2xl.border,
+html.dark.console-shell .rounded-xl.border,
+html.dark.console-shell .rounded-lg.border,
+html.dark.console-shell .dropdown {
+  border-color: var(--console-panel-line) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)),
+    rgba(11, 15, 22, 0.82) !important;
+  box-shadow: var(--console-panel-shadow) !important;
+}
+
+html.dark.console-shell .btn,
+html.dark.console-shell .btn-secondary,
+html.dark.console-shell .btn-ghost {
+  border-color: var(--console-panel-line-strong) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #d8dae0 !important;
+}
+
+html.dark.console-shell .btn:hover,
+html.dark.console-shell .btn-secondary:hover,
+html.dark.console-shell .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark.console-shell .input,
+html.dark.console-shell input,
+html.dark.console-shell select,
+html.dark.console-shell textarea,
+html.dark.console-shell [role="textbox"],
+html.dark.console-shell [role="combobox"] {
+  border-color: var(--console-panel-line-strong) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #d8dae0 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+html.dark.console-shell .input::placeholder,
+html.dark.console-shell input::placeholder,
+html.dark.console-shell textarea::placeholder {
+  color: rgba(216, 218, 224, 0.44) !important;
+}
+
+html.dark.console-shell table thead,
+html.dark.console-shell .table-header {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+html.dark.console-shell table th,
+html.dark.console-shell .table-header th,
+html.dark.console-shell table td,
+html.dark.console-shell .table-body td {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark.console-shell .hover\:bg-gray-50:hover,
+html.dark.console-shell .dark\:hover\:bg-dark-800:hover,
+html.dark.console-shell tr:hover td {
+  background: rgba(255, 255, 255, 0.018) !important;
+}
+
+html.dark.console-shell code,
+html.dark.console-shell .code {
+  color: var(--console-accent-soft) !important;
+}
