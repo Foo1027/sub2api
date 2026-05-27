@@ -45,60 +45,60 @@
     ['/admin/settings', 'admin-system']
   ]
 
+  var labelMap = {
+    'admin-core': '控制中心',
+    'admin-channel': '渠道与资源',
+    'admin-risk': '风控与网络',
+    'admin-growth': '增长工具',
+    'admin-finance': '订单与统计',
+    'admin-system': '系统配置',
+    'account': '我的账户'
+  }
+
   function isConsoleRoute(path) {
     return exactRoutes.has(path) || path.indexOf('/admin') === 0
   }
 
   function syncShellClass() {
     var path = window.location.pathname
-    if (!isConsoleRoute(path)) return
+    if (!isConsoleRoute(path)) return false
     document.documentElement.classList.add('console-shell')
     document.body.classList.add('console-override-active')
+    return true
   }
 
   function findSidebarNav() {
     return document.querySelector('.sidebar .sidebar-nav')
   }
 
-  function tagSidebarLinks() {
-    var nav = findSidebarNav()
-    if (!nav) return
+  function getGroupForItem(item) {
+    var href = item.getAttribute('href') || item.getAttribute('to') || ''
+    var source = href || ''
+    var group = ''
+    var matchers = source.indexOf('/admin') === 0 ? adminGroupMatchers : userGroupMatchers
 
+    matchers.forEach(function (entry) {
+      if (source.indexOf(entry[0]) === 0) group = entry[1]
+    })
+
+    return group
+  }
+
+  function tagSidebarLinks(nav) {
     var items = nav.querySelectorAll('a.sidebar-link, button.sidebar-link')
     items.forEach(function (item) {
-      var href = item.getAttribute('href') || item.getAttribute('to') || ''
-      var group = ''
-      var source = href || (item.textContent || '')
-      var matchers = source.indexOf('/admin') === 0 ? adminGroupMatchers : userGroupMatchers
-
-      matchers.forEach(function (entry) {
-        if (source.indexOf(entry[0]) === 0) group = entry[1]
-      })
-
+      var group = getGroupForItem(item)
       if (group) item.setAttribute('data-nav-group', group)
     })
   }
 
-  function ensureSidebarHeadings() {
-    var nav = findSidebarNav()
-    if (!nav) return
+  function ensureSidebarHeadings(nav) {
+    if (nav.getAttribute('data-console-grouped') === 'true') return
 
-    nav.querySelectorAll('.console-nav-heading').forEach(function (el) {
-      el.remove()
-    })
-
-    var labels = {
-      'admin-core': '控制中心',
-      'admin-channel': '渠道与资源',
-      'admin-risk': '风控与网络',
-      'admin-growth': '增长工具',
-      'admin-finance': '订单与统计',
-      'admin-system': '系统配置',
-      'account': '我的账户'
-    }
-
+    var children = Array.prototype.slice.call(nav.children)
     var seen = {}
-    Array.prototype.slice.call(nav.children).forEach(function (child) {
+
+    children.forEach(function (child) {
       var group =
         child.getAttribute('data-nav-group') ||
         child.querySelector('[data-nav-group]')?.getAttribute('data-nav-group')
@@ -108,14 +108,16 @@
 
       var heading = document.createElement('div')
       heading.className = 'console-nav-heading sidebar-section-title'
-      heading.textContent = labels[group] || ''
+      heading.textContent = labelMap[group] || ''
       nav.insertBefore(heading, child)
     })
+
+    nav.setAttribute('data-console-grouped', 'true')
   }
 
   function swapLogoByTheme() {
     var logo = document.querySelector('.sidebar .sidebar-logo img')
-    if (!logo) return
+    if (!logo) return false
     var isDark = document.documentElement.classList.contains('dark')
     var nextSrc = isDark
       ? '/landing-assets/foo_ai_logo_white.svg'
@@ -124,33 +126,43 @@
     if (logo.getAttribute('src') !== nextSrc) {
       logo.setAttribute('src', nextSrc)
     }
+    return true
   }
 
-  function syncSidebarBrand() {
+  function applySidebarEnhancements() {
+    var nav = findSidebarNav()
+    if (!nav) return false
+    tagSidebarLinks(nav)
+    ensureSidebarHeadings(nav)
     swapLogoByTheme()
-    tagSidebarLinks()
-    ensureSidebarHeadings()
+    return true
   }
 
   function run() {
-    syncShellClass()
-    syncSidebarBrand()
+    if (!syncShellClass()) return
+    applySidebarEnhancements()
   }
 
   run()
   window.addEventListener('popstate', run)
   window.addEventListener('hashchange', run)
+  document.addEventListener('DOMContentLoaded', run)
 
-  var observer = new MutationObserver(function () {
+  var retries = 0
+  var timer = setInterval(function () {
+    retries += 1
     run()
+    if (applySidebarEnhancements() || retries >= 20) {
+      clearInterval(timer)
+    }
+  }, 500)
+
+  var themeObserver = new MutationObserver(function () {
+    swapLogoByTheme()
   })
 
-  if (document.documentElement) {
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['class', 'src']
-    })
-  }
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  })
 })()
