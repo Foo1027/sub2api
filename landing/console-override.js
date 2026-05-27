@@ -222,7 +222,29 @@
     applySidebarEnhancements()
   }
 
+  var scheduled = false
+  function scheduleRun() {
+    if (scheduled) return
+    scheduled = true
+    window.requestAnimationFrame(function () {
+      scheduled = false
+      run()
+    })
+  }
+
+  function patchHistoryMethod(methodName) {
+    var original = window.history[methodName]
+    if (typeof original !== 'function') return
+    window.history[methodName] = function () {
+      var result = original.apply(this, arguments)
+      scheduleRun()
+      return result
+    }
+  }
+
   run()
+  patchHistoryMethod('pushState')
+  patchHistoryMethod('replaceState')
   window.addEventListener('popstate', run)
   window.addEventListener('hashchange', run)
   document.addEventListener('DOMContentLoaded', run)
@@ -243,5 +265,36 @@
   themeObserver.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['class']
+  })
+
+  var sidebarObserver = new MutationObserver(function (mutations) {
+    var shouldRefresh = mutations.some(function (mutation) {
+      if (mutation.type !== 'childList') return false
+      var changedNodes = Array.prototype.slice
+        .call(mutation.addedNodes)
+        .concat(Array.prototype.slice.call(mutation.removedNodes))
+
+      return changedNodes.some(function (node) {
+        if (!node || node.nodeType !== 1) return false
+        if (node.getAttribute && node.getAttribute('data-console-heading') === 'true') return false
+        if (node.closest && node.closest('[data-console-heading="true"]')) return false
+        return !!(
+          (node.matches && node.matches('.sidebar, .sidebar-nav, .sidebar-section, .sidebar-link')) ||
+          (node.querySelector &&
+            node.querySelector('.sidebar, .sidebar-nav, .sidebar-section, .sidebar-link'))
+        )
+      })
+      
+      return false
+    })
+
+    if (shouldRefresh) {
+      scheduleRun()
+    }
+  })
+
+  sidebarObserver.observe(document.body, {
+    childList: true,
+    subtree: true
   })
 })()
