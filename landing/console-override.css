@@ -698,6 +698,10 @@ html.console-shell nav[aria-label="Pagination"] {
   overflow: hidden;
 }
 
+html.console-shell .flex.items-center.justify-between.border-t.border-gray-200.bg-white.px-4.py-3.dark\:border-dark-700.dark\:bg-dark-800.sm\:px-6 {
+  border-radius: 20px !important;
+}
+
 html.console-shell nav[aria-label="Pagination"] > button,
 html.console-shell nav[aria-label="Pagination"] > a {
   border-radius: 0 !important;
@@ -718,6 +722,15 @@ html.console-shell nav[aria-label="Pagination"] > a:last-child {
 html.console-shell .page-size-select,
 html.console-shell .page-size-select .select-trigger,
 html.console-shell .page-size-select :is(button, div.select-trigger) {
+  border-radius: 16px !important;
+}
+
+html.console-shell .page-size-select.w-20,
+html.console-shell .page-size-select.w-20 .select-trigger,
+html.console-shell button.relative.inline-flex.items-center.rounded-l-md,
+html.console-shell button.relative.inline-flex.items-center.rounded-r-md,
+html.console-shell button.relative.inline-flex.items-center.rounded-md,
+html.console-shell input.input.w-20.text-sm {
   border-radius: 16px !important;
 }
 
@@ -1299,6 +1312,10 @@ html.dark.console-shell nav[aria-label="Pagination"] {
   overflow: hidden;
 }
 
+html.dark.console-shell .flex.items-center.justify-between.border-t.border-gray-200.bg-white.px-4.py-3.dark\:border-dark-700.dark\:bg-dark-800.sm\:px-6 {
+  border-radius: 20px !important;
+}
+
 html.dark.console-shell nav[aria-label="Pagination"] > button,
 html.dark.console-shell nav[aria-label="Pagination"] > a {
   border-radius: 0 !important;
@@ -1319,6 +1336,15 @@ html.dark.console-shell nav[aria-label="Pagination"] > a:last-child {
 html.dark.console-shell .page-size-select,
 html.dark.console-shell .page-size-select .select-trigger,
 html.dark.console-shell .page-size-select :is(button, div.select-trigger) {
+  border-radius: 16px !important;
+}
+
+html.dark.console-shell .page-size-select.w-20,
+html.dark.console-shell .page-size-select.w-20 .select-trigger,
+html.dark.console-shell button.relative.inline-flex.items-center.rounded-l-md,
+html.dark.console-shell button.relative.inline-flex.items-center.rounded-r-md,
+html.dark.console-shell button.relative.inline-flex.items-center.rounded-md,
+html.dark.console-shell input.input.w-20.text-sm {
   border-radius: 16px !important;
 }
 
