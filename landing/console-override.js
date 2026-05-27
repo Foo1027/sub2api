@@ -1,5 +1,5 @@
 (function () {
-  var routes = new Set([
+  var exactRoutes = new Set([
     '/dashboard',
     '/keys',
     '/usage',
@@ -14,7 +14,8 @@
   ])
 
   function syncConsoleShell() {
-    if (!routes.has(window.location.pathname)) return
+    var path = window.location.pathname
+    if (!exactRoutes.has(path) && !path.startsWith('/admin')) return
     document.documentElement.classList.add('console-shell')
     document.body.classList.add('console-override-active')
   }
