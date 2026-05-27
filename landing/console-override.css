@@ -693,6 +693,41 @@ html.console-shell .table-scroll-container .table-wrapper {
   scrollbar-width: thin;
 }
 
+html.console-shell nav[aria-label="Pagination"] {
+  border-radius: 18px !important;
+  overflow: hidden;
+}
+
+html.console-shell nav[aria-label="Pagination"] > button,
+html.console-shell nav[aria-label="Pagination"] > a {
+  border-radius: 0 !important;
+}
+
+html.console-shell nav[aria-label="Pagination"] > button:first-child,
+html.console-shell nav[aria-label="Pagination"] > a:first-child {
+  border-top-left-radius: 18px !important;
+  border-bottom-left-radius: 18px !important;
+}
+
+html.console-shell nav[aria-label="Pagination"] > button:last-child,
+html.console-shell nav[aria-label="Pagination"] > a:last-child {
+  border-top-right-radius: 18px !important;
+  border-bottom-right-radius: 18px !important;
+}
+
+html.console-shell .page-size-select,
+html.console-shell .page-size-select .select-trigger,
+html.console-shell .page-size-select :is(button, div.select-trigger) {
+  border-radius: 16px !important;
+}
+
+html.console-shell .layout-section-fixed .pagination,
+html.console-shell .layout-section-fixed [aria-label="Pagination"],
+html.console-shell .layout-section-fixed .input,
+html.console-shell .layout-section-fixed input[type="number"] {
+  border-radius: 16px !important;
+}
+
 html.console-shell .table-scroll-container,
 html.console-shell .rounded-2xl.border,
 html.console-shell .rounded-3xl.border,
@@ -1257,6 +1292,41 @@ html.dark.console-shell .table-scroll-container td {
   background:
     linear-gradient(180deg, rgba(22, 29, 41, 0.952), rgba(19, 25, 36, 0.962)),
     rgba(19, 25, 36, 0.956) !important;
+}
+
+html.dark.console-shell nav[aria-label="Pagination"] {
+  border-radius: 18px !important;
+  overflow: hidden;
+}
+
+html.dark.console-shell nav[aria-label="Pagination"] > button,
+html.dark.console-shell nav[aria-label="Pagination"] > a {
+  border-radius: 0 !important;
+}
+
+html.dark.console-shell nav[aria-label="Pagination"] > button:first-child,
+html.dark.console-shell nav[aria-label="Pagination"] > a:first-child {
+  border-top-left-radius: 18px !important;
+  border-bottom-left-radius: 18px !important;
+}
+
+html.dark.console-shell nav[aria-label="Pagination"] > button:last-child,
+html.dark.console-shell nav[aria-label="Pagination"] > a:last-child {
+  border-top-right-radius: 18px !important;
+  border-bottom-right-radius: 18px !important;
+}
+
+html.dark.console-shell .page-size-select,
+html.dark.console-shell .page-size-select .select-trigger,
+html.dark.console-shell .page-size-select :is(button, div.select-trigger) {
+  border-radius: 16px !important;
+}
+
+html.dark.console-shell .layout-section-fixed .pagination,
+html.dark.console-shell .layout-section-fixed [aria-label="Pagination"],
+html.dark.console-shell .layout-section-fixed .input,
+html.dark.console-shell .layout-section-fixed input[type="number"] {
+  border-radius: 16px !important;
 }
 
 html.dark.console-shell .table-scroll-container,
