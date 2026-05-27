@@ -1548,3 +1548,155 @@ html.dark.console-shell.route-admin-ops .h-2.w-full.overflow-hidden.rounded-full
 html.dark.console-shell.route-admin-ops .relative.h-2.overflow-hidden.rounded-full.bg-gray-200 {
   background: rgba(255, 255, 255, 0.08) !important;
 }
+
+html.console-shell.route-admin-users .absolute.right-0.top-full.z-50,
+html.console-shell.route-admin-users .absolute.left-0.top-full.z-50,
+html.console-shell.route-admin-users .action-menu-content,
+html.console-shell.route-admin-groups .absolute.z-50.mt-1,
+html.console-shell.route-admin-groups .relative.overflow-hidden.rounded-xl.border.border-gray-200.bg-white.shadow-sm,
+html.console-shell.route-admin-accounts .absolute.right-0.z-50.mt-2,
+html.console-shell.route-admin-accounts .account-tools-menu-item,
+html.console-shell.route-admin-accounts .account-tools-menu-icon,
+html.console-shell.route-keys .group-selector-menu,
+html.console-shell.route-keys .endpoint-popover-content {
+  border-color: rgba(117, 83, 47, 0.14) !important;
+}
+
+html.console-shell.route-admin-users .absolute.right-0.top-full.z-50,
+html.console-shell.route-admin-users .absolute.left-0.top-full.z-50,
+html.console-shell.route-admin-users .action-menu-content,
+html.console-shell.route-admin-groups .absolute.z-50.mt-1,
+html.console-shell.route-admin-accounts .absolute.right-0.z-50.mt-2,
+html.console-shell.route-keys .group-selector-menu,
+html.console-shell.route-keys .endpoint-popover-content {
+  background:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.09), transparent 30%),
+    linear-gradient(180deg, rgba(255, 252, 248, 0.96), rgba(247, 240, 232, 0.98)),
+    rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 22px 48px rgba(54, 35, 18, 0.14) !important;
+}
+
+html.console-shell.route-admin-users .my-1.border-t.border-gray-100,
+html.console-shell.route-admin-users .my-2.border-t.border-gray-100,
+html.console-shell.route-admin-accounts .my-1.border-t.border-gray-100,
+html.console-shell.route-admin-accounts .my-2.border-t.border-gray-100,
+html.console-shell.route-admin-groups .border-b.border-gray-100 {
+  border-color: rgba(117, 83, 47, 0.12) !important;
+}
+
+html.console-shell.route-admin-users .input,
+html.console-shell.route-admin-groups .input,
+html.console-shell.route-admin-accounts .input,
+html.console-shell.route-keys .input,
+html.console-shell.route-admin-users .select-trigger,
+html.console-shell.route-admin-groups .select-trigger,
+html.console-shell.route-admin-accounts .select-trigger,
+html.console-shell.route-keys .select-trigger {
+  background: rgba(255, 253, 250, 0.94) !important;
+  border-color: rgba(117, 83, 47, 0.12) !important;
+}
+
+html.console-shell.route-admin-groups .rounded-xl.border.border-gray-200.bg-white,
+html.console-shell.route-admin-groups .group.relative.rounded-xl.border.border-gray-200.bg-white,
+html.console-shell.route-admin-groups .rounded-2xl.bg-gray-50,
+html.console-shell.route-admin-groups .rounded-lg.bg-gray-50,
+html.console-shell.route-admin-accounts .rounded-lg.border.border-amber-200.bg-amber-50,
+html.console-shell.route-admin-accounts .account-tools-menu-icon,
+html.console-shell.route-keys .h-1\.5.w-full.overflow-hidden.rounded-full.bg-gray-200,
+html.console-shell.route-keys .h-1.w-full.overflow-hidden.rounded-full.bg-gray-200 {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 248, 0.92), rgba(245, 237, 228, 0.96)),
+    rgba(255, 255, 255, 0.88) !important;
+}
+
+html.console-shell.route-admin-groups .bg-blue-100,
+html.console-shell.route-admin-groups .bg-primary-50,
+html.console-shell.route-admin-accounts .bg-blue-50,
+html.console-shell.route-admin-accounts .bg-primary-100,
+html.console-shell.route-keys .bg-primary-500,
+html.console-shell.route-keys .text-blue-500,
+html.console-shell.route-keys .text-blue-600 {
+  color: #d66b12 !important;
+}
+
+html.console-shell.route-admin-groups .bg-blue-100,
+html.console-shell.route-admin-accounts .bg-blue-50,
+html.console-shell.route-admin-accounts .bg-primary-100 {
+  background-color: rgba(var(--console-accent-rgb), 0.12) !important;
+}
+
+html.console-shell.route-keys .bg-primary-500 {
+  background-color: rgba(var(--console-accent-rgb), 0.88) !important;
+}
+
+html.dark.console-shell.route-admin-users .absolute.right-0.top-full.z-50,
+html.dark.console-shell.route-admin-users .absolute.left-0.top-full.z-50,
+html.dark.console-shell.route-admin-users .action-menu-content,
+html.dark.console-shell.route-admin-groups .absolute.z-50.mt-1,
+html.dark.console-shell.route-admin-accounts .absolute.right-0.z-50.mt-2,
+html.dark.console-shell.route-keys .group-selector-menu,
+html.dark.console-shell.route-keys .endpoint-popover-content {
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  background:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(24, 30, 41, 0.97), rgba(13, 18, 27, 0.99)),
+    rgba(12, 17, 25, 0.98) !important;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.34) !important;
+}
+
+html.dark.console-shell.route-admin-users .my-1.border-t.border-gray-100,
+html.dark.console-shell.route-admin-users .my-2.border-t.border-gray-100,
+html.dark.console-shell.route-admin-accounts .my-1.border-t.border-gray-100,
+html.dark.console-shell.route-admin-accounts .my-2.border-t.border-gray-100,
+html.dark.console-shell.route-admin-groups .border-b.border-gray-100 {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark.console-shell.route-admin-users .input,
+html.dark.console-shell.route-admin-groups .input,
+html.dark.console-shell.route-admin-accounts .input,
+html.dark.console-shell.route-keys .input,
+html.dark.console-shell.route-admin-users .select-trigger,
+html.dark.console-shell.route-admin-groups .select-trigger,
+html.dark.console-shell.route-admin-accounts .select-trigger,
+html.dark.console-shell.route-keys .select-trigger {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark.console-shell.route-admin-groups .rounded-xl.border.border-gray-200.bg-white,
+html.dark.console-shell.route-admin-groups .group.relative.rounded-xl.border.border-gray-200.bg-white,
+html.dark.console-shell.route-admin-groups .rounded-2xl.bg-gray-50,
+html.dark.console-shell.route-admin-groups .rounded-lg.bg-gray-50,
+html.dark.console-shell.route-admin-accounts .rounded-lg.border.border-amber-200.bg-amber-50,
+html.dark.console-shell.route-admin-accounts .account-tools-menu-icon,
+html.dark.console-shell.route-keys .h-1\.5.w-full.overflow-hidden.rounded-full.bg-gray-200,
+html.dark.console-shell.route-keys .h-1.w-full.overflow-hidden.rounded-full.bg-gray-200,
+html.dark.console-shell.route-admin-groups .dark\:bg-dark-800,
+html.dark.console-shell.route-admin-groups .dark\:bg-dark-700\/50 {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012)),
+    rgba(18, 24, 35, 0.94) !important;
+}
+
+html.dark.console-shell.route-admin-groups .bg-blue-100,
+html.dark.console-shell.route-admin-groups .dark\:bg-blue-900\/30,
+html.dark.console-shell.route-admin-accounts .bg-blue-50,
+html.dark.console-shell.route-admin-accounts .dark\:bg-blue-900\/30,
+html.dark.console-shell.route-admin-accounts .dark\:bg-primary-900\/40,
+html.dark.console-shell.route-keys .text-blue-500,
+html.dark.console-shell.route-keys .text-blue-600 {
+  color: #ff9d4d !important;
+}
+
+html.dark.console-shell.route-admin-groups .bg-blue-100,
+html.dark.console-shell.route-admin-groups .dark\:bg-blue-900\/30,
+html.dark.console-shell.route-admin-accounts .bg-blue-50,
+html.dark.console-shell.route-admin-accounts .dark\:bg-blue-900\/30,
+html.dark.console-shell.route-admin-accounts .dark\:bg-primary-900\/40 {
+  background-color: rgba(var(--console-accent-rgb), 0.14) !important;
+}
+
+html.dark.console-shell.route-keys .bg-primary-500 {
+  background-color: rgba(var(--console-accent-rgb), 0.92) !important;
+}
