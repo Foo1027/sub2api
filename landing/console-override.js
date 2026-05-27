@@ -76,9 +76,22 @@
     return exactRoutes.has(path) || path.indexOf('/admin') === 0
   }
 
+  function clearShellClass() {
+    document.documentElement.classList.remove('console-shell')
+    document.body.classList.remove('console-override-active')
+    Array.prototype.slice
+      .call(document.documentElement.classList)
+      .forEach(function (cls) {
+        if (cls.indexOf('route-') === 0) document.documentElement.classList.remove(cls)
+      })
+  }
+
   function syncShellClass() {
     var path = window.location.pathname
-    if (!isConsoleRoute(path)) return false
+    if (!isConsoleRoute(path)) {
+      clearShellClass()
+      return false
+    }
     document.documentElement.classList.add('console-shell')
     document.body.classList.add('console-override-active')
     Array.prototype.slice

@@ -11,6 +11,20 @@
     return AUTH_ROUTES.get(window.location.pathname);
   }
 
+  function clearAuthSkin() {
+    document.body.classList.remove("auth-landing-page", "auth-packy-page");
+
+    document.querySelectorAll(".aifoo-auth-decoration").forEach((node) => node.remove());
+    document.querySelectorAll(".aifoo-auth-floating-badge").forEach((node) => node.remove());
+
+    document.querySelectorAll(".aifoo-auth-layout").forEach((node) => node.classList.remove("aifoo-auth-layout"));
+    document.querySelectorAll(".aifoo-auth-panel").forEach((node) => node.classList.remove("aifoo-auth-panel"));
+    document.querySelectorAll(".aifoo-auth-brand").forEach((node) => node.classList.remove("aifoo-auth-brand"));
+    document.querySelectorAll(".aifoo-auth-card").forEach((node) => node.classList.remove("aifoo-auth-card"));
+    document.querySelectorAll(".aifoo-auth-footer").forEach((node) => node.classList.remove("aifoo-auth-footer"));
+    document.querySelectorAll(".aifoo-auth-copyright").forEach((node) => node.classList.remove("aifoo-auth-copyright"));
+  }
+
   function ensureDecoration(outer) {
     let decoration = outer.querySelector(".aifoo-auth-decoration");
     if (decoration) {
@@ -51,6 +65,7 @@
   function applyAuthSkin() {
     const meta = getRouteMeta();
     if (!meta) {
+      clearAuthSkin();
       return;
     }
 
@@ -91,6 +106,16 @@
     applyAuthSkin();
   });
 
+  function patchHistoryMethod(methodName) {
+    const original = window.history[methodName];
+    if (typeof original !== "function") return;
+    window.history[methodName] = function (...args) {
+      const result = original.apply(this, args);
+      queueMicrotask(applyAuthSkin);
+      return result;
+    };
+  }
+
   function boot() {
     applyAuthSkin();
     observer.observe(document.documentElement, {
@@ -98,6 +123,11 @@
       subtree: true,
     });
   }
+
+  patchHistoryMethod("pushState");
+  patchHistoryMethod("replaceState");
+  window.addEventListener("popstate", applyAuthSkin);
+  window.addEventListener("hashchange", applyAuthSkin);
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot, { once: true });
