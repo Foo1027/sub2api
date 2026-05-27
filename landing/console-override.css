@@ -1810,3 +1810,33 @@ html.dark.console-shell.route-admin-accounts .dark\:bg-primary-900\/40 {
 html.dark.console-shell.route-keys .bg-primary-500 {
   background-color: rgba(var(--console-accent-rgb), 0.92) !important;
 }
+
+html.console-shell.route-orders .card.p-4 .input,
+html.console-shell.route-orders .card.p-4 .select-trigger,
+html.console-shell.route-admin-orders .card.p-4 .input,
+html.console-shell.route-admin-orders .card.p-4 .select-trigger,
+html.console-shell.route-admin-orders .space-y-4 > .card.p-4 .input,
+html.console-shell.route-admin-orders .space-y-4 > .card.p-4 .select-trigger {
+  border-radius: 18px !important;
+}
+
+html.console-shell.route-orders .card.p-4 .flex-1.sm\:max-w-64,
+html.console-shell.route-admin-orders .card.p-4 .flex-1.sm\:max-w-64 {
+  border-radius: 18px !important;
+  overflow: hidden;
+}
+
+html.dark.console-shell.route-orders .card.p-4 .input,
+html.dark.console-shell.route-orders .card.p-4 .select-trigger,
+html.dark.console-shell.route-admin-orders .card.p-4 .input,
+html.dark.console-shell.route-admin-orders .card.p-4 .select-trigger,
+html.dark.console-shell.route-admin-orders .space-y-4 > .card.p-4 .input,
+html.dark.console-shell.route-admin-orders .space-y-4 > .card.p-4 .select-trigger {
+  border-radius: 18px !important;
+}
+
+html.dark.console-shell.route-orders .card.p-4 .flex-1.sm\:max-w-64,
+html.dark.console-shell.route-admin-orders .card.p-4 .flex-1.sm\:max-w-64 {
+  border-radius: 18px !important;
+  overflow: hidden;
+}
