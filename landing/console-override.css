@@ -1149,6 +1149,48 @@ html.dark.console-shell .table-scroll-container td {
   color: #d8dae0 !important;
 }
 
+html.dark.console-shell .table-scroll-container tbody .text-gray-900,
+html.dark.console-shell .table-scroll-container tbody .dark\:text-white,
+html.dark.console-shell .table-scroll-container tbody .font-medium,
+html.dark.console-shell .table-scroll-container tbody .font-semibold {
+  color: rgba(245, 247, 250, 0.96) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody .text-gray-700,
+html.dark.console-shell .table-scroll-container tbody .text-gray-600,
+html.dark.console-shell .table-scroll-container tbody .dark\:text-gray-300,
+html.dark.console-shell .table-scroll-container tbody .dark\:text-gray-200 {
+  color: rgba(229, 233, 239, 0.88) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody .text-gray-500,
+html.dark.console-shell .table-scroll-container tbody .text-gray-400,
+html.dark.console-shell .table-scroll-container tbody .dark\:text-dark-400,
+html.dark.console-shell .table-scroll-container tbody .dark\:text-dark-300,
+html.dark.console-shell .table-scroll-container tbody .dark\:text-gray-400 {
+  color: rgba(218, 223, 230, 0.78) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody .text-xs,
+html.dark.console-shell .table-scroll-container tbody .text-\[10px\],
+html.dark.console-shell .table-scroll-container tbody .text-\[11px\] {
+  opacity: 1 !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody .badge-gray,
+html.dark.console-shell .table-scroll-container tbody .inline-flex.items-center.rounded.bg-gray-100,
+html.dark.console-shell .table-scroll-container tbody .inline-flex.items-center.rounded-md.bg-gray-100,
+html.dark.console-shell .table-scroll-container tbody .bg-gray-100,
+html.dark.console-shell .table-scroll-container tbody .dark\:bg-dark-600 {
+  color: rgba(231, 235, 241, 0.9) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody .line-through,
+html.dark.console-shell .table-scroll-container tbody .opacity-50,
+html.dark.console-shell .table-scroll-container tbody .opacity-60 {
+  opacity: 0.82 !important;
+}
+
 html.dark.console-shell .table-scroll-container thead th:first-child,
 html.dark.console-shell .table-scroll-container thead th:last-child,
 html.dark.console-shell .table-scroll-container tbody td:first-child,
@@ -1170,7 +1212,7 @@ html.dark.console-shell .table-scroll-container tbody td:last-child .text-gray-5
 html.dark.console-shell .table-scroll-container tbody td:last-child .text-gray-400,
 html.dark.console-shell .table-scroll-container tbody td:last-child .dark\:text-gray-300,
 html.dark.console-shell .table-scroll-container tbody td:last-child .dark\:text-dark-400 {
-  color: rgba(223, 227, 234, 0.78) !important;
+  color: rgba(233, 237, 243, 0.86) !important;
 }
 
 html.dark.console-shell .table-scroll-container tbody td:last-child button,
