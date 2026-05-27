@@ -58,7 +58,6 @@
     'admin-growth': '增长工具',
     'admin-finance': '订单与统计',
     'admin-system': '系统配置',
-    'account': '我的账户',
     'user-api': 'API',
     'user-billing': '账单',
     'user-other': '其他'
@@ -152,39 +151,47 @@
     return heading
   }
 
-  function ensureSectionHeadings(section, forceAccountTitle) {
+  function ensureSectionHeadings(section) {
     var items = Array.prototype.slice.call(section.querySelectorAll(':scope > .sidebar-link, :scope > button.sidebar-link'))
     if (!items.length) return
 
     var seen = {}
-    var firstItem = items[0]
-
-    if (forceAccountTitle) {
-      section.insertBefore(createHeading(labelMap.account), firstItem)
-    }
 
     items.forEach(function (item) {
       var group = item.getAttribute('data-nav-group') || getGroupForItem(item)
       if (!group || seen[group]) return
       seen[group] = true
-      if (forceAccountTitle && group === 'account') return
       if (group === 'user-overview') return
       section.insertBefore(createHeading(labelMap[group] || ''), item)
     })
   }
 
+  function hideNativeAccountHeading(nav) {
+    var titles = nav.querySelectorAll('.sidebar-section-title')
+    titles.forEach(function (title) {
+      if (title.getAttribute('data-console-heading') === 'true') return
+      var text = (title.textContent || '').replace(/\s+/g, ' ').trim()
+      if (text === '我的账户') {
+        title.setAttribute('data-console-hidden-heading', 'true')
+      } else {
+        title.removeAttribute('data-console-hidden-heading')
+      }
+    })
+  }
+
   function ensureSidebarHeadings(nav) {
     cleanupInjectedSidebarHeadings(nav)
+    hideNativeAccountHeading(nav)
 
     var sections = Array.prototype.slice.call(nav.querySelectorAll(':scope > .sidebar-section'))
     if (!sections.length) return
 
     if (sections.length === 1) {
-      ensureSectionHeadings(sections[0], true)
+      ensureSectionHeadings(sections[0])
       return
     }
 
-    ensureSectionHeadings(sections[0], false)
+    ensureSectionHeadings(sections[0])
   }
 
   function swapLogoByTheme() {

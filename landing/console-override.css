@@ -61,7 +61,7 @@ html.console-shell .console-nav-heading {
   margin-bottom: 0.46rem;
   padding-left: 0.95rem;
   padding-right: 0.95rem;
-  font-size: 10px !important;
+  font-size: 11px !important;
   font-weight: 800;
   letter-spacing: 0.16em;
   line-height: 1.2;
@@ -72,7 +72,7 @@ html.console-shell .console-nav-heading:first-child {
 }
 
 html.console-shell .sidebar-brand-title {
-  font-size: 22px !important;
+  font-size: 24px !important;
   color: #161411 !important;
   letter-spacing: -0.04em;
 }
@@ -116,20 +116,37 @@ html.console-shell .console-nav-heading.sidebar-section-title::after {
 html.console-shell .console-nav-heading .sidebar-section-title-text {
   opacity: 1 !important;
   transform: none !important;
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 html.console-shell .sidebar-link {
-  min-height: 42px;
+  min-height: 46px;
   padding-left: 0.95rem !important;
   padding-right: 0.95rem !important;
   border-radius: 14px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
   color: rgba(38, 31, 24, 0.78) !important;
   transition:
     background-color 180ms ease,
     color 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease !important;
+}
+
+html.console-shell .sidebar-link .sidebar-label,
+html.console-shell .sidebar-link .sidebar-label span,
+html.console-shell .sidebar-link .truncate {
+  font-size: 15px !important;
+}
+
+html.console-shell .sidebar-link .h-5.w-5 {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+html.console-shell .sidebar-section-title[data-console-hidden-heading="true"] {
+  display: none !important;
 }
 
 html.console-shell .sidebar-link:hover {
