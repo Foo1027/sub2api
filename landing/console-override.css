@@ -1142,11 +1142,47 @@ html.dark.console-shell .table-header {
 }
 
 html.dark.console-shell .table-scroll-container th {
-  color: rgba(216, 218, 224, 0.58) !important;
+  color: rgba(232, 235, 240, 0.84) !important;
 }
 
 html.dark.console-shell .table-scroll-container td {
   color: #d8dae0 !important;
+}
+
+html.dark.console-shell .table-scroll-container thead th:first-child,
+html.dark.console-shell .table-scroll-container thead th:last-child,
+html.dark.console-shell .table-scroll-container tbody td:first-child,
+html.dark.console-shell .table-scroll-container tbody td:last-child {
+  color: rgba(245, 247, 250, 0.96) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody td:first-child .font-medium,
+html.dark.console-shell .table-scroll-container tbody td:first-child .text-gray-900,
+html.dark.console-shell .table-scroll-container tbody td:first-child .dark\:text-white,
+html.dark.console-shell .table-scroll-container tbody td:last-child .font-medium,
+html.dark.console-shell .table-scroll-container tbody td:last-child .text-gray-900,
+html.dark.console-shell .table-scroll-container tbody td:last-child .dark\:text-white {
+  color: rgba(245, 247, 250, 0.98) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody td:last-child .text-xs,
+html.dark.console-shell .table-scroll-container tbody td:last-child .text-gray-500,
+html.dark.console-shell .table-scroll-container tbody td:last-child .text-gray-400,
+html.dark.console-shell .table-scroll-container tbody td:last-child .dark\:text-gray-300,
+html.dark.console-shell .table-scroll-container tbody td:last-child .dark\:text-dark-400 {
+  color: rgba(223, 227, 234, 0.78) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody td:last-child button,
+html.dark.console-shell .table-scroll-container tbody td:last-child a,
+html.dark.console-shell .table-scroll-container tbody td:last-child .flex.flex-col.items-center.gap-0\.5.rounded-lg.p-1\.5 {
+  color: rgba(223, 227, 234, 0.82) !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody td:last-child button:hover,
+html.dark.console-shell .table-scroll-container tbody td:last-child a:hover,
+html.dark.console-shell .table-scroll-container tbody td:last-child .flex.flex-col.items-center.gap-0\.5.rounded-lg.p-1\.5:hover {
+  color: rgba(255, 255, 255, 0.96) !important;
 }
 
 html.dark.console-shell .inline-flex.items-center.gap-1\\.5.rounded-md {
