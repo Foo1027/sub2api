@@ -9,6 +9,17 @@
   --console-radius-xl: 28px;
   --console-radius-lg: 20px;
   --console-radius-md: 16px;
+  --console-module-surface:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.07), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 241, 233, 0.96));
+  --console-module-surface-soft:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.06), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(248, 242, 234, 0.88));
+  --console-module-fill: rgba(255, 255, 255, 0.9);
+  --console-module-fill-soft: rgba(255, 255, 255, 0.8);
+  --console-module-border: rgba(117, 83, 47, 0.14);
+  --console-module-header:
+    linear-gradient(180deg, rgba(255, 252, 248, 0.82), rgba(249, 242, 234, 0.66));
 }
 
 html.console-shell body {
@@ -940,6 +951,80 @@ html.console-shell .table-scroll-container tr:hover .sticky-col-right {
   background: linear-gradient(180deg, rgba(255, 251, 247, 0.948), rgba(250, 245, 240, 0.956)) !important;
 }
 
+html.console-shell .card,
+html.console-shell .glass-card,
+html.console-shell .table-scroll-container,
+html.console-shell .rounded-2xl.border,
+html.console-shell .rounded-3xl.border,
+html.console-shell .rounded-xl.border,
+html.console-shell .rounded-lg.border,
+html.console-shell .border.border-gray-200,
+html.console-shell .border.border-gray-100,
+html.console-shell .overflow-hidden.rounded-2xl.border,
+html.console-shell .overflow-hidden.rounded-xl.border,
+html.console-shell .overflow-hidden.rounded-lg.border,
+html.console-shell .rounded-xl.bg-gray-50.p-4.dark\:bg-dark-800,
+html.console-shell .rounded-xl.bg-gray-50,
+html.console-shell .bg-primary-50,
+html.console-shell .group.flex.w-full.items-center.gap-4.rounded-xl.bg-gray-50,
+html.console-shell section.py-3.md\:py-4 > div,
+html.console-shell .layout-section-fixed > *,
+html.console-shell .grid.gap-6.lg\:grid-cols-2 > div.overflow-hidden.rounded-2xl.border,
+html.console-shell .grid.gap-6.lg\:grid-cols-2 > div.rounded-2xl.border,
+html.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white,
+html.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white.p-6,
+html.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1,
+html.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1.ring-gray-900\/5,
+html.console-shell .route-admin-ops .rounded-2xl.bg-gray-50,
+html.console-shell .route-admin-ops .rounded-xl.bg-gray-50,
+html.console-shell .route-admin-ops .rounded-lg.bg-gray-100,
+html.console-shell .route-admin-ops .rounded-2xl.bg-gray-50.p-4,
+html.console-shell .route-admin-ops .rounded-xl.bg-gray-50.p-3,
+html.console-shell .route-admin-groups .rounded-xl.border.border-gray-200.bg-white,
+html.console-shell .route-admin-groups .group.relative.rounded-xl.border.border-gray-200.bg-white,
+html.console-shell .route-admin-groups .rounded-2xl.bg-gray-50,
+html.console-shell .route-admin-groups .rounded-lg.bg-gray-50,
+html.console-shell .route-admin-accounts .rounded-lg.border.border-amber-200.bg-amber-50,
+html.console-shell .route-orders .rounded-xl.bg-gray-50.p-4,
+html.console-shell .route-admin-orders .rounded-xl.bg-gray-50.p-4,
+html.console-shell .route-admin-orders .max-h-48.space-y-2.overflow-y-auto > .rounded-lg.border.border-gray-100.bg-gray-50.p-2\.5 {
+  border-color: var(--console-module-border) !important;
+  background: var(--console-module-surface), var(--console-module-fill) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 18px 42px rgba(54, 35, 18, 0.08) !important;
+}
+
+html.console-shell .table-scroll-container > div:first-child,
+html.console-shell .overflow-hidden.rounded-2xl.border > div:first-child,
+html.console-shell .overflow-hidden.rounded-xl.border > div:first-child,
+html.console-shell .overflow-hidden.rounded-lg.border > div:first-child,
+html.console-shell .grid.gap-6.lg\:grid-cols-2 > div.overflow-hidden.rounded-2xl.border > div:first-child,
+html.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white > div:first-child,
+html.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white.p-6 > div:first-child,
+html.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1 > div:first-child,
+html.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1.ring-gray-900\/5 > div:first-child {
+  background: var(--console-module-header), rgba(255, 255, 255, 0.72) !important;
+  border-bottom: 1px solid rgba(117, 83, 47, 0.1) !important;
+}
+
+html.console-shell .route-admin-users .input,
+html.console-shell .route-admin-groups .input,
+html.console-shell .route-admin-accounts .input,
+html.console-shell .route-keys .input,
+html.console-shell .route-admin-users .select-trigger,
+html.console-shell .route-admin-groups .select-trigger,
+html.console-shell .route-admin-accounts .select-trigger,
+html.console-shell .route-keys .select-trigger,
+html.console-shell .route-orders .card.p-4 .input,
+html.console-shell .route-orders .card.p-4 .select-trigger,
+html.console-shell .route-admin-orders .card.p-4 .input,
+html.console-shell .route-admin-orders .card.p-4 .select-trigger,
+html.console-shell .route-admin-orders .space-y-4 > .card.p-4 .input,
+html.console-shell .route-admin-orders .space-y-4 > .card.p-4 .select-trigger {
+  background: rgba(255, 252, 248, 0.92) !important;
+}
+
 html.console-shell code,
 html.console-shell .code {
   color: #c35c0a !important;
@@ -1622,6 +1707,99 @@ html.dark.console-shell .table-scroll-container tr:hover .sticky-col-left-first,
 html.dark.console-shell .table-scroll-container tr:hover .sticky-col-left-second,
 html.dark.console-shell .table-scroll-container tr:hover .sticky-col-right {
   background: linear-gradient(180deg, rgba(27, 36, 50, 0.962), rgba(22, 30, 43, 0.972)) !important;
+}
+
+html.dark.console-shell {
+  --console-module-surface:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  --console-module-surface-soft:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  --console-module-fill: rgba(11, 15, 22, 0.9);
+  --console-module-fill-soft: rgba(255, 255, 255, 0.03);
+  --console-module-border: rgba(255, 255, 255, 0.06);
+  --console-module-header:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+}
+
+html.dark.console-shell .card,
+html.dark.console-shell .glass-card,
+html.dark.console-shell .table-scroll-container,
+html.dark.console-shell .rounded-2xl.border,
+html.dark.console-shell .rounded-3xl.border,
+html.dark.console-shell .rounded-xl.border,
+html.dark.console-shell .rounded-lg.border,
+html.dark.console-shell .border.border-gray-200,
+html.dark.console-shell .border.border-gray-100,
+html.dark.console-shell .overflow-hidden.rounded-2xl.border,
+html.dark.console-shell .overflow-hidden.rounded-xl.border,
+html.dark.console-shell .overflow-hidden.rounded-lg.border,
+html.dark.console-shell .rounded-xl.bg-gray-50.p-4.dark\:bg-dark-800,
+html.dark.console-shell .rounded-xl.bg-gray-50,
+html.dark.console-shell .bg-primary-50,
+html.dark.console-shell .group.flex.w-full.items-center.gap-4.rounded-xl.bg-gray-50,
+html.dark.console-shell section.py-3.md\:py-4 > div,
+html.dark.console-shell .layout-section-fixed > *,
+html.dark.console-shell .grid.gap-6.lg\:grid-cols-2 > div.overflow-hidden.rounded-2xl.border,
+html.dark.console-shell .grid.gap-6.lg\:grid-cols-2 > div.rounded-2xl.border,
+html.dark.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white,
+html.dark.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white.p-6,
+html.dark.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1,
+html.dark.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1.ring-gray-900\/5,
+html.dark.console-shell .route-admin-ops .rounded-3xl.dark\:bg-dark-800,
+html.dark.console-shell .route-admin-ops .rounded-2xl.bg-gray-50,
+html.dark.console-shell .route-admin-ops .rounded-xl.bg-gray-50,
+html.dark.console-shell .route-admin-ops .rounded-lg.bg-gray-100,
+html.dark.console-shell .route-admin-ops .rounded-2xl.bg-gray-50.p-4,
+html.dark.console-shell .route-admin-ops .rounded-xl.bg-gray-50.p-3,
+html.dark.console-shell .route-admin-ops .dark\:bg-dark-900,
+html.dark.console-shell .route-admin-ops .dark\:bg-dark-700\/50,
+html.dark.console-shell .route-admin-ops .dark\:bg-dark-800,
+html.dark.console-shell .route-admin-groups .rounded-xl.border.border-gray-200.bg-white,
+html.dark.console-shell .route-admin-groups .group.relative.rounded-xl.border.border-gray-200.bg-white,
+html.dark.console-shell .route-admin-groups .rounded-2xl.bg-gray-50,
+html.dark.console-shell .route-admin-groups .rounded-lg.bg-gray-50,
+html.dark.console-shell .route-admin-groups .dark\:bg-dark-800,
+html.dark.console-shell .route-admin-groups .dark\:bg-dark-700\/50,
+html.dark.console-shell .route-admin-accounts .rounded-lg.border.border-amber-200.bg-amber-50,
+html.dark.console-shell .route-orders .rounded-xl.bg-gray-50.p-4,
+html.dark.console-shell .route-admin-orders .rounded-xl.bg-gray-50.p-4,
+html.dark.console-shell .route-admin-orders .max-h-48.space-y-2.overflow-y-auto > .rounded-lg.border.border-gray-100.bg-gray-50.p-2\.5,
+html.dark.console-shell .route-admin-orders .dark\:bg-dark-800 {
+  border-color: var(--console-module-border) !important;
+  background: var(--console-module-surface), var(--console-module-fill) !important;
+  box-shadow: var(--console-panel-shadow) !important;
+}
+
+html.dark.console-shell .table-scroll-container > div:first-child,
+html.dark.console-shell .overflow-hidden.rounded-2xl.border > div:first-child,
+html.dark.console-shell .overflow-hidden.rounded-xl.border > div:first-child,
+html.dark.console-shell .overflow-hidden.rounded-lg.border > div:first-child,
+html.dark.console-shell .grid.gap-6.lg\:grid-cols-2 > div.overflow-hidden.rounded-2xl.border > div:first-child,
+html.dark.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white > div:first-child,
+html.dark.console-shell .route-admin-ops .space-y-6 > .rounded-3xl.bg-white.p-6 > div:first-child,
+html.dark.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1 > div:first-child,
+html.dark.console-shell .route-admin-ops .rounded-3xl.bg-white.p-6.shadow-sm.ring-1.ring-gray-900\/5 > div:first-child {
+  background: var(--console-module-header), rgba(255, 255, 255, 0.02) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark.console-shell .route-admin-users .input,
+html.dark.console-shell .route-admin-groups .input,
+html.dark.console-shell .route-admin-accounts .input,
+html.dark.console-shell .route-keys .input,
+html.dark.console-shell .route-admin-users .select-trigger,
+html.dark.console-shell .route-admin-groups .select-trigger,
+html.dark.console-shell .route-admin-accounts .select-trigger,
+html.dark.console-shell .route-keys .select-trigger,
+html.dark.console-shell .route-orders .card.p-4 .input,
+html.dark.console-shell .route-orders .card.p-4 .select-trigger,
+html.dark.console-shell .route-admin-orders .card.p-4 .input,
+html.dark.console-shell .route-admin-orders .card.p-4 .select-trigger,
+html.dark.console-shell .route-admin-orders .space-y-4 > .card.p-4 .input,
+html.dark.console-shell .route-admin-orders .space-y-4 > .card.p-4 .select-trigger {
+  background: rgba(255, 255, 255, 0.04) !important;
 }
 
 html.dark.console-shell code,
