@@ -693,6 +693,38 @@ html.console-shell .table-scroll-container .table-wrapper {
   scrollbar-width: thin;
 }
 
+html.console-shell .table-scroll-container,
+html.console-shell .rounded-2xl.border,
+html.console-shell .rounded-3xl.border,
+html.console-shell .rounded-xl.border,
+html.console-shell .rounded-lg.border,
+html.console-shell .border.border-gray-200,
+html.console-shell .border.border-gray-100,
+html.console-shell .overflow-hidden.rounded-2xl.border,
+html.console-shell .overflow-hidden.rounded-xl.border,
+html.console-shell .overflow-hidden.rounded-lg.border {
+  border-color: rgba(117, 83, 47, 0.14) !important;
+  background:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 241, 233, 0.96)),
+    rgba(255, 255, 255, 0.92) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 18px 42px rgba(54, 35, 18, 0.08) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+html.console-shell .table-scroll-container > div:first-child,
+html.console-shell .overflow-hidden.rounded-2xl.border > div:first-child,
+html.console-shell .overflow-hidden.rounded-xl.border > div:first-child,
+html.console-shell .overflow-hidden.rounded-lg.border > div:first-child {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 248, 0.82), rgba(249, 242, 234, 0.66)),
+    rgba(255, 255, 255, 0.72) !important;
+  border-bottom: 1px solid rgba(117, 83, 47, 0.1) !important;
+}
+
 html.console-shell .table-scroll-container thead {
   border-bottom: 1px solid rgba(20, 18, 16, 0.08);
 }
@@ -706,6 +738,14 @@ html.console-shell .table-scroll-container th {
 html.console-shell .table-scroll-container td {
   color: #211a14 !important;
   border-bottom-color: rgba(20, 18, 16, 0.06) !important;
+}
+
+html.console-shell .table-scroll-container tbody tr {
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+html.console-shell .table-scroll-container tbody tr:hover td {
+  background: rgba(255, 248, 242, 0.72) !important;
 }
 
 html.console-shell .table-scroll-container tbody tr:last-child td {
@@ -1209,6 +1249,38 @@ html.dark.console-shell .table-scroll-container td {
   color: #d8dae0 !important;
 }
 
+html.dark.console-shell .table-scroll-container,
+html.dark.console-shell .rounded-2xl.border,
+html.dark.console-shell .rounded-3xl.border,
+html.dark.console-shell .rounded-xl.border,
+html.dark.console-shell .rounded-lg.border,
+html.dark.console-shell .border.border-gray-200,
+html.dark.console-shell .border.border-gray-100,
+html.dark.console-shell .overflow-hidden.rounded-2xl.border,
+html.dark.console-shell .overflow-hidden.rounded-xl.border,
+html.dark.console-shell .overflow-hidden.rounded-lg.border {
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  background:
+    radial-gradient(circle at top right, rgba(var(--console-accent-rgb), 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(23, 29, 40, 0.96), rgba(14, 20, 30, 0.985)),
+    rgba(12, 17, 25, 0.98) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 24px 56px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+html.dark.console-shell .table-scroll-container > div:first-child,
+html.dark.console-shell .overflow-hidden.rounded-2xl.border > div:first-child,
+html.dark.console-shell .overflow-hidden.rounded-xl.border > div:first-child,
+html.dark.console-shell .overflow-hidden.rounded-lg.border > div:first-child {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012)),
+    rgba(15, 21, 31, 0.78) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
 html.dark.console-shell .table-scroll-container .sticky-col,
 html.dark.console-shell .table-scroll-container .sticky-header-cell.sticky-col,
 html.dark.console-shell .table-scroll-container tbody .sticky-col {
@@ -1288,6 +1360,10 @@ html.dark.console-shell .table-scroll-container tbody .text-xs,
 html.dark.console-shell .table-scroll-container tbody .text-\[10px\],
 html.dark.console-shell .table-scroll-container tbody .text-\[11px\] {
   opacity: 1 !important;
+}
+
+html.dark.console-shell .table-scroll-container tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.028) !important;
 }
 
 html.dark.console-shell .table-scroll-container tbody .badge-gray,
